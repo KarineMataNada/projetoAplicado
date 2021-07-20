@@ -389,3 +389,809 @@ Binding(CTRL+SHIFT+C,
 
 !ENTRY Activator 1 0 2021-07-19 18:58:25.796
 !MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 19:06:59.195
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 19:06:59.228
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 19:06:59.694
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.oZSUMIKf
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 19:06:59.695
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.oZSUMIKf
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 19:06:59.695
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 19:06:59.696
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.oZSUMIKf => OK
+
+!ENTRY Activator 1 0 2021-07-19 19:07:00.095
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 19:07:00.098
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+!SESSION 2021-07-19 21:16:34.494 -----------------------------------------------
+eclipse.buildId=4.11.0.202106180608
+java.version=16.0.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.eclipse.jface 2 0 2021-07-19 21:16:47.403
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-07-19 21:16:47.403
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@349996a6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@78aa1753,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:16:59.041
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:16:59.047
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@41969c4[org.springframework.tooling.boot.ls:1.26.0.202106150606(id=559)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:16:59.052
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:16:59.099
+!MESSAGE Instantiating ReusableClasspathListenerHandler
+
+!ENTRY Activator 1 0 2021-07-19 21:17:01.892
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 21:17:01.942
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY org.eclipse.egit.ui 2 0 2021-07-19 21:17:02.234
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Karine'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:17:10.841
+!MESSAGE Boot LS startup time from start to initialized: 11773ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:17:11.091
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.PRKjWXIuisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:17:11.098
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:17:11.102
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:17:11.104
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:17:11.104
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:17:11.104
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.PRKjWXIu => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:17:11.120
+!MESSAGE classpath=103 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:17:11.128
+!MESSAGE buffering callback sts4.classpath.PRKjWXIu trabalhoAplicado false 103
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:17:11.129
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:17:11.141
+!MESSAGE classpath=112 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:17:11.151
+!MESSAGE buffering callback sts4.classpath.PRKjWXIu coffee42teste false 112
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:17:11.152
+!MESSAGE executing callback sts4.classpath.PRKjWXIu 2 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 21:17:11.929
+!MESSAGE executing callback sts4.classpath.PRKjWXIu SUCCESS [done]
+
+!ENTRY org.eclipse.lsp4e 2 0 2021-07-19 21:24:28.123
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:385)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2092)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.ui 2 2 2021-07-19 21:38:46.613
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
+
+!ENTRY Activator 1 0 2021-07-19 21:39:05.164
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 21:39:05.168
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 21:39:06.981
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 21:39:06.999
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 21:39:08.666
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 21:39:08.667
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 21:39:09.378
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 21:39:09.385
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY org.eclipse.lsp4e 2 0 2021-07-19 21:40:26.590
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:385)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2092)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY Activator 1 0 2021-07-19 21:42:49.406
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 21:42:49.407
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 21:42:50.155
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 21:42:50.243
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 21:46:22.606
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 21:46:22.671
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 21:46:23.278
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 21:46:23.476
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 21:50:24.351
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 21:50:24.353
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 21:50:25.058
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 21:50:25.098
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY org.eclipse.lsp4e 2 0 2021-07-19 21:52:35.244
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:385)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2092)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.lsp4e 2 0 2021-07-19 21:55:21.555
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:385)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2092)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY Activator 1 0 2021-07-19 21:55:40.182
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 21:55:40.185
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 21:55:40.882
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 21:55:40.917
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:12:37.048
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:12:37.055
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:12:37.756
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:12:39.376
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:13:40.531
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:13:40.534
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:13:41.193
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:13:41.223
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY org.eclipse.lsp4e 2 0 2021-07-19 22:14:11.944
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:385)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2092)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY Activator 1 0 2021-07-19 22:16:08.489
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:16:08.491
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:16:11.494
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:16:11.517
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:16:28.804
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.PRKjWXIu
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:16:28.805
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.PRKjWXIu
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:16:28.806
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:16:28.807
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.PRKjWXIu => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:45.288
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:45.289
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@41969c4[org.springframework.tooling.boot.ls:1.26.0.202106150606(id=559)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:45.289
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:49.026
+!MESSAGE Boot LS startup time from start to initialized: 3735ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:49.198
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.XCrdSfncisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:49.200
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:49.201
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:49.202
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:49.202
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:49.203
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.XCrdSfnc => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:49.215
+!MESSAGE classpath=103 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:49.224
+!MESSAGE buffering callback sts4.classpath.XCrdSfnc trabalhoAplicado false 103
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:49.224
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:49.235
+!MESSAGE classpath=112 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:49.242
+!MESSAGE buffering callback sts4.classpath.XCrdSfnc coffee42teste false 112
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:49.243
+!MESSAGE executing callback sts4.classpath.XCrdSfnc 2 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2021-07-19 22:35:49.979
+!MESSAGE executing callback sts4.classpath.XCrdSfnc SUCCESS [done]
+
+!ENTRY Activator 1 0 2021-07-19 22:36:36.738
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:36:36.740
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:36:37.375
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:36:37.413
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:41:21.817
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:41:21.820
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:41:22.425
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:41:22.438
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:42:48.639
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:42:48.640
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:42:49.323
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:42:49.341
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:43:16.436
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:43:16.437
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:43:17.148
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:43:17.175
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:43:30.080
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:43:30.082
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:43:30.715
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:43:30.720
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:49:24.283
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:49:24.285
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:49:24.957
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:49:24.982
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY org.eclipse.lsp4e 2 0 2021-07-19 22:56:05.842
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:385)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2092)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY Activator 1 0 2021-07-19 22:56:25.481
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:56:25.482
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:56:26.173
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:56:26.192
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:56:34.941
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:56:34.944
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:56:35.955
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:56:35.957
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:56:42.838
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 22:56:42.839
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:56:43.515
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 22:56:43.535
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:17:51.779
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:17:51.781
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:17:54.758
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:17:54.782
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:18:03.150
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:18:03.152
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:18:03.869
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:18:03.891
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:18:48.648
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:18:48.649
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:18:49.245
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:18:49.301
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:24:37.843
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:24:37.845
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:24:38.878
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:24:38.939
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY org.eclipse.lsp4e 2 0 2021-07-19 23:26:42.941
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:385)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2092)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY Activator 1 0 2021-07-19 23:28:17.788
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:28:17.791
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:28:18.421
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:28:18.440
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:28:26.075
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:28:26.078
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:28:26.808
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:28:26.817
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:36:46.530
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:36:46.537
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:36:47.177
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:36:47.227
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:42:21.802
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:42:21.807
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:42:22.864
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:42:22.880
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:44:07.855
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:44:07.856
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:44:08.537
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:44:08.881
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:44:40.578
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:44:40.580
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:44:41.340
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:44:41.360
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:45:03.907
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:45:03.915
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:45:04.856
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:45:04.857
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:46:21.093
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:46:21.098
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:46:21.791
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:46:21.816
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:46:29.126
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:46:29.128
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:46:29.761
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:46:29.767
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY org.eclipse.jface 2 0 2021-07-19 23:48:25.790
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-07-19 23:48:25.790
+!MESSAGE A conflict occurred for CTRL+SHIFT+C:
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.eclipse.tm4e.languageconfiguration.togglelinecommentcommand,Toggle Line Comment,
+		,
+		Category(org.eclipse.tm4e.languageconfiguration.category,TM4E Language Configuration,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3a54080e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.springframework.tooling.boot.ls.ToggleComment,Toggle Comment,
+		,
+		Category(org.springframework.ide.eclipse.commands,Spring Generic Text Editor,Spring Language Server Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3d0d7e43,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY Activator 1 0 2021-07-19 23:48:30.530
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:48:30.530
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-19 23:48:30.708
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-19 23:48:30.708
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:08:19.591
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:08:19.594
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:08:20.233
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:08:20.259
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:09:24.322
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:09:24.323
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:09:24.962
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:09:25.003
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:12:43.421
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:12:43.424
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:12:44.066
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:12:44.098
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:13:08.436
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:13:08.437
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:13:09.015
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:13:09.036
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY org.eclipse.lsp4e 2 0 2021-07-20 00:14:17.241
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:385)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2092)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY Activator 1 0 2021-07-20 00:14:25.809
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:14:25.811
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:14:26.433
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:14:26.484
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:14:34.702
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:14:34.705
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:14:35.306
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:14:35.332
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:16:58.015
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:16:58.016
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:16:58.700
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:16:58.719
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:17:07.523
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:17:07.524
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:17:08.165
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:17:08.194
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:17:15.247
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:17:15.248
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:17:15.902
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:17:15.936
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:17:27.216
+!MESSAGE Has main method computation for project 'coffee42teste'
+
+!ENTRY Activator 1 0 2021-07-20 00:17:27.217
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:17:27.837
+!MESSAGE Has main method computation for project 'trabalhoAplicado'
+
+!ENTRY Activator 1 0 2021-07-20 00:17:27.852
+!MESSAGE Has main method computation for project 'coffee42teste'

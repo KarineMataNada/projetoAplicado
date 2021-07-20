@@ -2,24 +2,17 @@ package com.serratec.trabalhoAplicado.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "medico")
-@SequenceGenerator(name = "generator_usuario", sequenceName = "sequence_usuario", initialValue = 1, allocationSize = 1)
+@SequenceGenerator(name = "generator_medico", sequenceName = "sequence_medico", initialValue = 1, allocationSize = 1)
 public class Medico extends Usuario{
 
-	public  Medico(String email, String username, String senha, String nome, String cpf ,String telefone) {
+	public  Medico(Long id, String email, String username, String senha, String nome, String cpf ,String telefone) {
 		super();
 	}
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator_usuario")
-	private Long id;
 	
 	@Column(nullable = true, length = 60, unique = true)
 	private String crn;

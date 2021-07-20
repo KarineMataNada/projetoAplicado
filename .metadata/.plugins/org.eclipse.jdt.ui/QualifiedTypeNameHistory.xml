@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.repository.UsuarioRepository"/>
+    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.service.UsuarioService"/>
+    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.model.Usuario"/>
+    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.repository.EnderecoRepository"/>
+    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.model.Endereco"/>
+    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.service.EnderecoService"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="org.springframework.data.annotation.Id"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+</qualifiedTypeNameHistroy>

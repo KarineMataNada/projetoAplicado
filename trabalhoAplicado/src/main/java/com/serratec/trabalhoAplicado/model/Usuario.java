@@ -39,6 +39,8 @@ public class Usuario {
 	
 	@Column(nullable = false, length = 60)
 	private String telefone;
+	
+
 
 	public Usuario() {}
 	
@@ -54,6 +56,7 @@ public class Usuario {
 		this.telefone = telefone;
 		
 	}
+
 
 
 
