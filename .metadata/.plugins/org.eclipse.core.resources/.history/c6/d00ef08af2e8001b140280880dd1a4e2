@@ -1,0 +1,5 @@
+package com.serratec.trabalhoAplicado.repository;
+
+public class EnderecoRepository {
+
+}
