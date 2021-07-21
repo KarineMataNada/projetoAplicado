@@ -14,8 +14,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-
 import com.serratec.trabalhoAplicado.dto.LoginResponse;
+import com.serratec.trabalhoAplicado.exception.ResourceNotFoundException;
 import com.serratec.trabalhoAplicado.repository.UsuarioRepository;
 import com.serratec.trabalhoAplicado.security.JWTService;
 
@@ -24,7 +24,7 @@ import com.serratec.trabalhoAplicado.model.Usuario;
 @Service
 public class UsuarioService {
 	
-	private static final String headerPrefix = "Coffee ";
+	private static final String headerPrefix = "Bearer ";
 
 	@Autowired
 	private UsuarioRepository repositorioUsuario;
@@ -48,6 +48,10 @@ public class UsuarioService {
 	public Optional<Usuario> obterPorId(Long id) {
 		 Optional<Usuario> usuario = repositorioUsuario.findById(id);	 
 		
+		 if(usuario.isEmpty()) {
+			throw new ResourceNotFoundException("Usuario não encontrado!");
+		}
+		 
 		 return usuario;
 	}
 	
@@ -55,6 +59,10 @@ public class UsuarioService {
 
 	public List<Usuario> obterPorNome(String nome) {
 		List<Usuario> usuario = repositorioUsuario.findByNomeContaining(nome);	
+		
+		if(usuario.isEmpty()) {
+			throw new ResourceNotFoundException("Usuario não encontrado!");
+		}
 		
 		return usuario;
 	}
@@ -76,6 +84,9 @@ public class UsuarioService {
 	 public Usuario atualizar(Usuario usuario, Long id) {
 		 Optional<Usuario> usuarioAtualizado = repositorioUsuario.findById(id);
 		 
+			if(usuarioAtualizado.isEmpty()) {
+				throw new ResourceNotFoundException("Usuario não encontrado por id");
+			}
 
 			usuario.setId(id);		
 			return repositorioUsuario.save(usuario);
@@ -86,6 +97,9 @@ public class UsuarioService {
 	public void deletar(Long id) {
 	    Optional<Usuario> deletarUsuario = repositorioUsuario.findById(id);
 
+	    if(deletarUsuario.isEmpty()) {
+			throw new ResourceNotFoundException("Usuario não encontrado por id");
+		}
 
 		repositorioUsuario.deleteById(id);	 
 	}

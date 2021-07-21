@@ -12,9 +12,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.serratec.trabalhoAplicado.repository.UsuarioRepository;
 import com.serratec.trabalhoAplicado.security.JWTService;
 import com.serratec.trabalhoAplicado.dto.LoginResponseMedico;
+import com.serratec.trabalhoAplicado.exception.ResourceNotFoundException;
 import com.serratec.trabalhoAplicado.model.Medico;
 import com.serratec.trabalhoAplicado.repository.MedicoRepository;
 
@@ -22,7 +22,7 @@ import com.serratec.trabalhoAplicado.repository.MedicoRepository;
 @Service
 public class MedicoService {
 
-	private static final String headerPrefix = "Coffee ";
+	private static final String headerPrefix = "Bearer ";
 
 	@Autowired
 	private MedicoRepository repositorioMedico;
@@ -45,6 +45,9 @@ public class MedicoService {
 	public Optional<Medico> obterPorId(Long id) {
 		 Optional<Medico> medico = repositorioMedico.findById(id);	 
 		
+		 if(medico.isEmpty()) {
+			throw new ResourceNotFoundException("Paciente não encontrado por id!");
+		}
 		 return medico;
 	}
 	
@@ -52,6 +55,10 @@ public class MedicoService {
 
 	public List<Medico> obterPorNome(String nome) {
 		List<Medico> medico = repositorioMedico.findByNomeContaining(nome);	
+		
+		if(medico.isEmpty()) {
+			throw new ResourceNotFoundException("Paciente não encontrado por id!");
+		}  
 		
 		return medico;
 	}
@@ -69,6 +76,10 @@ public class MedicoService {
 	 public Medico atualizar(Medico medico, Long id) {
 		 Optional<Medico> medicoAtualizado = repositorioMedico.findById(id);
 		 
+			if(medicoAtualizado.isEmpty()) {
+				throw new ResourceNotFoundException("Paciente não encontrado por id");
+			}
+			
 		 medico.setId(id);		
 		return repositorioMedico.save(medico);
 		
@@ -78,7 +89,10 @@ public class MedicoService {
 	public void deletar(Long id) {
 	    Optional<Medico> deletarMedico = repositorioMedico.findById(id);
 
-	    
+	    if(deletarMedico.isEmpty()) {
+			throw new ResourceNotFoundException("Usuario não encontrado por id");
+		}
+
 		repositorioMedico.deleteById(id);	 
 }
 	

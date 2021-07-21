@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.serratec.trabalhoAplicado.exception.ResourceNotFoundException;
 import com.serratec.trabalhoAplicado.model.Secretaria;
 
 import com.serratec.trabalhoAplicado.repository.SecretariaRepository;
@@ -31,6 +32,10 @@ public class SecretariaService {
 	public Optional<Secretaria> obterPorId(Long id) {
 		 Optional<Secretaria> secretaria = repositorioSecretaria.findById(id);	 
 		
+		 if(secretaria.isEmpty()) {
+			throw new ResourceNotFoundException("Secretario(a) não encontrado por id");
+		}
+		 
 		 return secretaria;
 	}
 	
@@ -39,6 +44,9 @@ public class SecretariaService {
 	public List<Secretaria> obterPorNome(String nome) {
 		List<Secretaria> secretaria = repositorioSecretaria.findByNomeContaining(nome);	
 		
+		if(secretaria.isEmpty()) {
+			throw new ResourceNotFoundException("Secretario(a) não encontrado por id");
+		}
 		return secretaria;
 	}
 	
@@ -55,6 +63,9 @@ public class SecretariaService {
 	 public Secretaria atualizar(Secretaria secretaria, Long id) {
 		 Optional<Secretaria> secretariaAtualizado = repositorioSecretaria.findById(id);
 		 
+			if(secretariaAtualizado.isEmpty()) {
+				throw new ResourceNotFoundException("Secretario(a) não encontrado por id");
+			}
 		 secretaria.setId(id);		
 		return repositorioSecretaria.save(secretaria);
 		
@@ -64,7 +75,10 @@ public class SecretariaService {
 	public void deletar(Long id) {
 	    Optional<Secretaria> deletarSecretaria = repositorioSecretaria.findById(id);
 
-	    
+	    if(deletarSecretaria.isEmpty()) {
+			throw new ResourceNotFoundException("Secretario(a) não encontrado por id");
+		}
+
 		repositorioSecretaria.deleteById(id);	 
 }
 	

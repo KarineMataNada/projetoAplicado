@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.serratec.trabalhoAplicado.exception.ResourceNotFoundException;
 import com.serratec.trabalhoAplicado.model.Paciente;
 import com.serratec.trabalhoAplicado.repository.PacienteRepository;
 
@@ -28,6 +29,9 @@ public class PacienteService {
 	public Optional<Paciente> obterPorId(Long id) {
 		 Optional<Paciente> paciente = repositorioPaciente.findById(id);	 
 		
+		 if(paciente.isEmpty()) {
+			throw new ResourceNotFoundException("Medico não encontrado por id!");
+		}
 		 return paciente;
 	}
 	
@@ -36,6 +40,9 @@ public class PacienteService {
 	public List<Paciente> obterPorNome(String nome) {
 		List<Paciente> paciente = repositorioPaciente.findByNomeContaining(nome);	
 		
+		if(paciente.isEmpty()) {
+			throw new ResourceNotFoundException("Medico não encontrado por id!");
+		}
 		return paciente;
 	}
 	
@@ -49,6 +56,9 @@ public class PacienteService {
 	 public Paciente atualizar(Paciente paciente, Long id) {
 		 Optional<Paciente> pacienteAtualizado = repositorioPaciente.findById(id);
 		 
+			if(pacienteAtualizado.isEmpty()) {
+				throw new ResourceNotFoundException("Medico não encontrado por id");
+			}
 		paciente.setId(id);		
 		return repositorioPaciente.save(paciente);
 		
@@ -58,6 +68,9 @@ public class PacienteService {
 	public void deletar(Long id) {
 	    Optional<Paciente> deletarPaciente = repositorioPaciente.findById(id);
    
+	    if(deletarPaciente.isEmpty()) {
+			throw new ResourceNotFoundException("Medico não encontrado por id");
+		}
 		repositorioPaciente.deleteById(id);	 
 }
 	
