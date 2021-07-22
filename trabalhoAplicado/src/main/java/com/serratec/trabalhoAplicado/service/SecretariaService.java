@@ -42,10 +42,10 @@ public class SecretariaService {
 	
 
 	public List<Secretaria> obterPorNome(String nome) {
-		List<Secretaria> secretaria = repositorioSecretaria.findByNomeContaining(nome);	
+		List<Secretaria> secretaria = repositorioSecretaria.findAllByNomeContainingIgnoreCase(nome);	
 		
 		if(secretaria.isEmpty()) {
-			throw new ResourceNotFoundException("Secretario(a) não encontrado por id");
+			throw new ResourceNotFoundException("Secretario(a) não encontrado!");
 		}
 		return secretaria;
 	}

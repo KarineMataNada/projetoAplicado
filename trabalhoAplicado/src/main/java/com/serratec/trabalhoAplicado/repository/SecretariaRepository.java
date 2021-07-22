@@ -13,6 +13,6 @@ public interface SecretariaRepository extends JpaRepository<Secretaria, Long> {
 		
 	Optional<Secretaria> findById(Long id);
 	Optional<Secretaria> findByUsername(String username);
-	List<Secretaria> findByNomeContaining(String nome);
+	List<Secretaria> findAllByNomeContainingIgnoreCase(String nome);
 
 }

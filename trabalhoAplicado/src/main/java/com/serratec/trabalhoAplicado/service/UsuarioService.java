@@ -58,7 +58,7 @@ public class UsuarioService {
 	
 
 	public List<Usuario> obterPorNome(String nome) {
-		List<Usuario> usuario = repositorioUsuario.findByNomeContaining(nome);	
+		List<Usuario> usuario = repositorioUsuario.findAllByNomeContainingIgnoreCase(nome);	
 		
 		if(usuario.isEmpty()) {
 			throw new ResourceNotFoundException("Usuario não encontrado!");

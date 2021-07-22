@@ -13,6 +13,6 @@ public interface PacienteRepository extends JpaRepository<Paciente, Long> {
 		
 	Optional<Paciente> findById(Long id);
 	Optional<Paciente> findByUsername(String username);
-	List<Paciente> findByNomeContaining(String nome);
+	List<Paciente> findAllByNomeContainingIgnoreCase(String nome);
 
 }

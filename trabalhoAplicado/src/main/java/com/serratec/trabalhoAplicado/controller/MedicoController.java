@@ -3,6 +3,8 @@ package com.serratec.trabalhoAplicado.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -43,12 +45,12 @@ public class MedicoController {
 	}
 	
 	@PostMapping
-	public Medico adicionar(@RequestBody Medico medico) {		
+	public Medico adicionar(@RequestBody @Valid Medico medico) {		
 		return servicoMedico.adicionar(medico);
 	}
 	
 	@PutMapping("/{id}")
-	public Medico atualizar(@PathVariable(value = "id")Long id, @RequestBody Medico medico){
+	public Medico atualizar(@PathVariable(value = "id")Long id, @RequestBody  Medico medico){
 		return servicoMedico.atualizar(medico, id);
 	}
 	

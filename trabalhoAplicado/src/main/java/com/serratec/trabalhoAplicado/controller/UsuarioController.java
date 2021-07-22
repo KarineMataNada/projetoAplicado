@@ -3,6 +3,8 @@ package com.serratec.trabalhoAplicado.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -45,7 +47,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping
-	public Usuario adicionar(@RequestBody Usuario usuario) {		
+	public Usuario adicionar(@RequestBody @Valid Usuario usuario) {		
 		return servicoUsuario.adicionar(usuario);
 	}
 	

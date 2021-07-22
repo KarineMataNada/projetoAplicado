@@ -54,10 +54,10 @@ public class MedicoService {
 	
 
 	public List<Medico> obterPorNome(String nome) {
-		List<Medico> medico = repositorioMedico.findByNomeContaining(nome);	
+		List<Medico> medico = repositorioMedico.findAllByNomeContainingIgnoreCase(nome);	
 		
 		if(medico.isEmpty()) {
-			throw new ResourceNotFoundException("Paciente não encontrado por id!");
+			throw new ResourceNotFoundException("Paciente não encontrado!");
 		}  
 		
 		return medico;

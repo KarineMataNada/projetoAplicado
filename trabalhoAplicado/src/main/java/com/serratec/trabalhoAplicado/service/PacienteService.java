@@ -38,7 +38,7 @@ public class PacienteService {
 	
 
 	public List<Paciente> obterPorNome(String nome) {
-		List<Paciente> paciente = repositorioPaciente.findByNomeContaining(nome);	
+		List<Paciente> paciente = repositorioPaciente.findAllByNomeContainingIgnoreCase(nome);	
 		
 		if(paciente.isEmpty()) {
 			throw new ResourceNotFoundException("Medico não encontrado por id!");

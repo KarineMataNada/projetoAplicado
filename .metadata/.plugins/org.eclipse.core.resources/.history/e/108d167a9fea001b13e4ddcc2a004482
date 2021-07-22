@@ -1,0 +1,6 @@
+package com.serratec.trabalhoAplicado.model;
+
+public enum FormaPagamento {
+
+	
+}
