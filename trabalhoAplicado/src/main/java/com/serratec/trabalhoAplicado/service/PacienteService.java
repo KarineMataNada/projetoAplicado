@@ -30,7 +30,7 @@ public class PacienteService {
 		 Optional<Paciente> paciente = repositorioPaciente.findById(id);	 
 		
 		 if(paciente.isEmpty()) {
-			throw new ResourceNotFoundException("Medico não encontrado por id!");
+			throw new ResourceNotFoundException("Paciente não encontrado por id!");
 		}
 		 return paciente;
 	}
@@ -41,7 +41,7 @@ public class PacienteService {
 		List<Paciente> paciente = repositorioPaciente.findAllByNomeContainingIgnoreCase(nome);	
 		
 		if(paciente.isEmpty()) {
-			throw new ResourceNotFoundException("Medico não encontrado por id!");
+			throw new ResourceNotFoundException("Paciente não encontrado!");
 		}
 		return paciente;
 	}
@@ -57,7 +57,7 @@ public class PacienteService {
 		 Optional<Paciente> pacienteAtualizado = repositorioPaciente.findById(id);
 		 
 			if(pacienteAtualizado.isEmpty()) {
-				throw new ResourceNotFoundException("Medico não encontrado por id");
+				throw new ResourceNotFoundException("Paciente não encontrado!");
 			}
 		paciente.setId(id);		
 		return repositorioPaciente.save(paciente);
@@ -69,7 +69,7 @@ public class PacienteService {
 	    Optional<Paciente> deletarPaciente = repositorioPaciente.findById(id);
    
 	    if(deletarPaciente.isEmpty()) {
-			throw new ResourceNotFoundException("Medico não encontrado por id");
+			throw new ResourceNotFoundException("Paciente não encontrado!");
 		}
 		repositorioPaciente.deleteById(id);	 
 }

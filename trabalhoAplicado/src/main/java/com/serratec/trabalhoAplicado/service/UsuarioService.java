@@ -1,7 +1,5 @@
 package com.serratec.trabalhoAplicado.service;
 
-
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -16,10 +14,9 @@ import org.springframework.stereotype.Service;
 
 import com.serratec.trabalhoAplicado.dto.LoginResponse;
 import com.serratec.trabalhoAplicado.exception.ResourceNotFoundException;
+import com.serratec.trabalhoAplicado.model.Usuario;
 import com.serratec.trabalhoAplicado.repository.UsuarioRepository;
 import com.serratec.trabalhoAplicado.security.JWTService;
-
-import com.serratec.trabalhoAplicado.model.Usuario;
 
 @Service
 public class UsuarioService {
