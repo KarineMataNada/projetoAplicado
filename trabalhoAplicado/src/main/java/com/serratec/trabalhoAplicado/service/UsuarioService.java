@@ -14,7 +14,9 @@ import org.springframework.stereotype.Service;
 
 import com.serratec.trabalhoAplicado.dto.LoginResponse;
 import com.serratec.trabalhoAplicado.exception.ResourceNotFoundException;
+import com.serratec.trabalhoAplicado.model.Endereco;
 import com.serratec.trabalhoAplicado.model.Usuario;
+import com.serratec.trabalhoAplicado.repository.EnderecoRepository;
 import com.serratec.trabalhoAplicado.repository.UsuarioRepository;
 import com.serratec.trabalhoAplicado.security.JWTService;
 
@@ -27,6 +29,9 @@ public class UsuarioService {
 	private UsuarioRepository repositorioUsuario;
 	
 	@Autowired
+	private EnderecoRepository repositorioEndereco;
+	
+	@Autowired
 	private JWTService jwtService;
 	
     @Autowired
@@ -35,6 +40,8 @@ public class UsuarioService {
     @Autowired
     private PasswordEncoder passwordEnconder;
 	
+    @Autowired
+	private CepService serviceCep;
 	
 
 	public List<Usuario> obterTodos() {
@@ -70,9 +77,14 @@ public class UsuarioService {
 		if(repositorioUsuario.findByUsername(usuario.getUsername()).isPresent()) {
 			
 	}
+		Endereco endereco = serviceCep.obterEnderecoPorCep(usuario.getEndereco().getCep());
+		usuario.setEndereco(endereco);
 		
 		String senha = passwordEnconder.encode(usuario.getSenha());
 		usuario.setSenha(senha);
+		
+		this.repositorioEndereco.save(endereco);
+		
 		
 		return repositorioUsuario.save(usuario);
 		

@@ -3,11 +3,14 @@ package com.serratec.trabalhoAplicado.model;
 
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -19,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
-@Table(name = "master")
+@Table(name = "usuario")
 @SequenceGenerator(name = "generator_usuario", sequenceName = "sequence_usuario", initialValue = 1, allocationSize = 1)
 public class Usuario implements UserDetails {
 
@@ -54,6 +57,11 @@ public class Usuario implements UserDetails {
 	@NotNull
 	private String telefone;
 	
+	@OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "endereco_id")
+	@NotNull
+	private Endereco endereco;
+	
 
 
 	public Usuario() {}
@@ -71,6 +79,16 @@ public class Usuario implements UserDetails {
 	}
 
 
+
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
 
 
 	public Long getId() {
@@ -172,5 +190,7 @@ public class Usuario implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
+
+
 	
 }

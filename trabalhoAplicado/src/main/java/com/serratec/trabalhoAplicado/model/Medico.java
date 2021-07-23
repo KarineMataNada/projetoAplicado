@@ -1,9 +1,11 @@
 package com.serratec.trabalhoAplicado.model;
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -26,6 +28,10 @@ public class Medico extends Usuario {
 		@Column(length = 60)
 		@NotNull
 		private String especialidade;
+		
+		
+		@OneToMany(mappedBy = "medico")
+		private List<Recibo> recibos;
 		
 		
 	    public String getEspecialidade() {

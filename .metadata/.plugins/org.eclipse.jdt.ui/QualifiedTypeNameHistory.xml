@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.repository.SecretariaRepository"/>
-    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.repository.PacienteRepository"/>
-    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.service.PacienteService"/>
-    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.service.UsuarioService"/>
-    <fullyQualifiedTypeName name="javax.persistence.SequenceGenerator"/>
-    <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.UserDetails"/>
-    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
-    <fullyQualifiedTypeName name="org.hibernate.mapping.Collection"/>
-    <fullyQualifiedTypeName name="java.util.Collection"/>
-    <fullyQualifiedTypeName name="org.springframework.security.core.GrantedAuthority"/>
-    <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
-    <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
-    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.service.MedicoService"/>
-    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.dto.LoginRequest"/>
-    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.repository.MedicoRepository"/>
     <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.model.Medico"/>
     <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.dto.LoginResponseMedico"/>
     <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.error.ErrorMessage"/>
@@ -53,11 +38,26 @@
     <fullyQualifiedTypeName name="org.springframework.security.crypto.password.PasswordEncoder"/>
     <fullyQualifiedTypeName name="org.springframework.security.core.Authentication"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
-    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
     <fullyQualifiedTypeName name="javax.persistence.Table"/>
-    <fullyQualifiedTypeName name="javax.persistence.Id"/>
-    <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
     <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.exception.ResourceNotFoundException"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
+    <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
+    <fullyQualifiedTypeName name="org.springframework.web.reactive.function.client.WebClient"/>
+    <fullyQualifiedTypeName name="io.netty.handler.codec.http.HttpMethod"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpMethod"/>
+    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.model.Endereco"/>
+    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.repository.EnderecoRepository"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
+    <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="javax.persistence.ManyToMany"/>
+    <fullyQualifiedTypeName name="javax.persistence.JoinTable"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.model.enuns.FormaPagamento"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
 </qualifiedTypeNameHistroy>
