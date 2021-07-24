@@ -31,7 +31,7 @@ public class Medico extends Usuario {
 		
 		
 		@OneToMany(mappedBy = "medico")
-		private List<Recibo> recibos;
+		private List<Layout> layout;
 		
 		
 	    public String getEspecialidade() {

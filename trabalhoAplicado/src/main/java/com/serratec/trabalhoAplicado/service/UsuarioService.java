@@ -78,7 +78,10 @@ public class UsuarioService {
 			
 	}
 		Endereco endereco = serviceCep.obterEnderecoPorCep(usuario.getEndereco().getCep());
+		endereco.setComplemento(usuario.getEndereco().getComplemento());
+		endereco.setNumero(usuario.getEndereco().getNumero());
 		usuario.setEndereco(endereco);
+		
 		
 		String senha = passwordEnconder.encode(usuario.getSenha());
 		usuario.setSenha(senha);

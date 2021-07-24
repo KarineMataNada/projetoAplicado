@@ -52,7 +52,7 @@ public class Paciente {
 	
 
 	@OneToMany(mappedBy = "paciente")
-	private List<Recibo> recibos;
+	private List<Layout> layout;
 	
 
 	public Paciente() {}

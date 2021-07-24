@@ -12,7 +12,7 @@ import com.serratec.trabalhoAplicado.service.CepService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("api/endereco")
 public class EnderecoController {
 
     @Autowired
