@@ -1,0 +1,25 @@
+package com.serratec.trabalhoAplicado.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.serratec.trabalhoAplicado.repository.ReciboRepository;
+
+
+
+@Service
+public class ReciboService {
+
+	@Autowired
+	private ReciboRepository repositorioRecibo;
+	
+	@Autowired
+	private MedicoRepository repositorioMedico;
+	
+	@Autowired
+	private PacienteRepository repositorioPaciente;
+	
+	
+	
+	
+}
