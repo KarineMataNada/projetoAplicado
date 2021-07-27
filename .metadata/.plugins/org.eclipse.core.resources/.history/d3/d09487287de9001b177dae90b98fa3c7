@@ -1,5 +1,0 @@
-package com.serratec.trabalhoAplicado.dto;
-
-public class LoginResponse {
-
-}
