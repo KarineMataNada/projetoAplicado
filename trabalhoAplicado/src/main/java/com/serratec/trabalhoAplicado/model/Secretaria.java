@@ -2,10 +2,9 @@ package com.serratec.trabalhoAplicado.model;
 
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+
 
 @Entity
-@Table(name = "secretaria")
 @SequenceGenerator(name = "generator_secretaria", sequenceName = "sequence_secretaria", initialValue = 1, allocationSize = 1)
 public class Secretaria extends Usuario{
 

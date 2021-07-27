@@ -7,11 +7,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "medico")
 @SequenceGenerator(name = "generator_medico", sequenceName = "sequence_medico", initialValue = 1, allocationSize = 1)
 public class Medico extends Usuario {
 	
@@ -30,9 +28,9 @@ public class Medico extends Usuario {
 		private String especialidade;
 		
 		
-		@OneToMany(mappedBy = "medico")
-		private List<Layout> layout;
-		
+//		@OneToMany(mappedBy = "medico")
+//		private List<Layout> layout;
+//		
 		
 	    public String getEspecialidade() {
 			return especialidade;

@@ -1,6 +1,7 @@
 package com.serratec.trabalhoAplicado.model;
 
 
+import java.time.LocalDate;
 import java.util.Collection;
 
 import javax.persistence.CascadeType;
@@ -62,23 +63,41 @@ public class Usuario implements UserDetails {
 	@NotNull
 	private Endereco endereco;
 	
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
+	}
+
+
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
+	private LocalDate dataNascimento;
 
 
 	public Usuario() {}
 	
-	
-	public Usuario(Long id, String email, String username, String nome, String cpf, String telefone) {
-	
+
+	public Usuario(Long id, @NotNull String email, @NotNull String username, @NotNull String senha,
+			@NotNull String nome, @NotNull String cpf, @NotNull String telefone, @NotNull Endereco endereco,
+			LocalDate dataNascimento) {
+		super();
 		this.id = id;
 		this.email = email;
 		this.username = username;
+		this.senha = senha;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.telefone = telefone;
-		
+		this.endereco = endereco;
+		this.dataNascimento = dataNascimento;
 	}
-
-
 
 
 	public Endereco getEndereco() {
@@ -99,9 +118,11 @@ public class Usuario implements UserDetails {
 		this.id = id;
 	}
 	
+	
 	public String getEmail() {
 		return email;
 	}
+	
 	
 	public void setEmail(String email) {
 		this.email = email;
@@ -112,13 +133,16 @@ public class Usuario implements UserDetails {
 		return username;
 	}
 	
+	
 	public void setUsername(String username) {
 		this.username = username;
 	}
 	
+	
 	public String getSenha() {
 		return senha;
 	}
+	
 	
 	public void setSenha(String senha) {
 		this.senha = senha;
@@ -128,13 +152,16 @@ public class Usuario implements UserDetails {
 		return nome;
 	}
 	
+	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 	
+	
 	public String getCpf() {
 		return cpf;
 	}
+	
 	
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
@@ -144,10 +171,12 @@ public class Usuario implements UserDetails {
 		return telefone;
 	}
 	
+	
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 
+	
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

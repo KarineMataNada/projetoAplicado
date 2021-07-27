@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.exception.ResourceBadRequestException"/>
-    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.exception.ResourceInternalServerErrorException"/>
-    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.exception.ResourceForbiddenException"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
     <fullyQualifiedTypeName name="org.springframework.validation.annotation.Validated"/>
     <fullyQualifiedTypeName name="com.sun.istack.NotNull"/>
@@ -41,8 +38,6 @@
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.model.enuns.FormaPagamento"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
-    <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.repository.LayoutRepository"/>
     <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.exception.ResourceNotFoundException"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
@@ -60,4 +55,9 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="javax.validation.Valid"/>
+    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.model.Recibo"/>
+    <fullyQualifiedTypeName name="com.serratec.trabalhoAplicado.model.Medico"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
 </qualifiedTypeNameHistroy>

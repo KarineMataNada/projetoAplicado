@@ -30,9 +30,6 @@ public class Paciente {
 	@NotNull
 	private String email; 
 	
-	@Column(length = 60, unique = true)
-	@NotNull
-	private String username;
 	
 	@Column(length = 60)
 	@NotNull
@@ -51,22 +48,23 @@ public class Paciente {
 	private Endereco endereco;
 	
 
-	@OneToMany(mappedBy = "paciente")
-	private List<Layout> layout;
-	
+//	@OneToMany(mappedBy = "paciente")
+//	private List<Layout> layout;
+//	
 
 	public Paciente() {}
 	
 	
-	public Paciente(Long id, String email, String username, String nome, String cpf, String telefone) {
-	
+
+	public Paciente(Long id, @NotNull String email, @NotNull String nome, @NotNull String cpf, @NotNull String telefone,
+			Endereco endereco) {
+		super();
 		this.id = id;
 		this.email = email;
-		this.username = username;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.telefone = telefone;
-		
+		this.endereco = endereco;
 	}
 
 
@@ -88,15 +86,6 @@ public class Paciente {
 		this.email = email;
 	}
 
-	
-	public String getUsername() {
-		return username;
-	}
-	
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	
 	
 	public String getNome() {
 		return nome;
