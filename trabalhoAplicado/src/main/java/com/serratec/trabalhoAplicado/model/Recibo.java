@@ -61,7 +61,7 @@ public class Recibo {
 	private List<Procedimentos> procedimento;
 	
 	@NotNull
-	private boolean statusFinalizado;
+	private Boolean statusFinalizado;
 	
 	
 	private LocalDate data;
