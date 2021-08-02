@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 
 
 import com.serratec.trabalhoAplicado.exception.ResourceNotFoundException;
+import com.serratec.trabalhoAplicado.model.Endereco;
 import com.serratec.trabalhoAplicado.model.Medico;
+import com.serratec.trabalhoAplicado.repository.EnderecoRepository;
 import com.serratec.trabalhoAplicado.repository.MedicoRepository;
 
 
@@ -22,9 +24,14 @@ public class MedicoService {
 	@Autowired
 	private MedicoRepository repositorioMedico;
 	
-	
 	@Autowired
 	private PasswordEncoder passwordEnconder;
+	
+	@Autowired
+	private EnderecoRepository repositorioEndereco;
+	
+    @Autowired
+	private CepService serviceCep;
 	
 
 	public List<Medico> obterTodos() {
@@ -56,10 +63,20 @@ public class MedicoService {
 	public Medico adicionar(Medico medico) {
 		medico.setId(null);
 		
+		Endereco endereco = serviceCep.obterEnderecoPorCep(medico.getEndereco().getCep());
+		endereco.setComplemento(medico.getEndereco().getComplemento());
+		endereco.setNumero(medico.getEndereco().getNumero());
+		medico.setEndereco(endereco);
+		
+		
 		String senha = passwordEnconder.encode(medico.getSenha());
 		medico.setSenha(senha);
 		
+		this.repositorioEndereco.save(endereco);
+		
+		
 		return repositorioMedico.save(medico);
+		
 		
 	}
 	
@@ -69,6 +86,12 @@ public class MedicoService {
 			if(medicoAtualizado.isEmpty()) {
 				throw new ResourceNotFoundException("Paciente não encontrado por id");
 			}
+			
+			Endereco endereco = serviceCep.obterEnderecoPorCep(medico.getEndereco().getCep());
+			endereco.setComplemento(medico.getEndereco().getComplemento());
+			endereco.setNumero(medico.getEndereco().getNumero());
+			medico.setEndereco(endereco);
+
 			
 		 medico.setId(id);		
 		return repositorioMedico.save(medico);

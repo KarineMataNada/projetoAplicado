@@ -2,15 +2,19 @@ package com.serratec.trabalhoAplicado.model;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -20,6 +24,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity
@@ -63,31 +68,17 @@ public class Usuario implements UserDetails {
 	@NotNull
 	private Endereco endereco;
 	
-	public LocalDate getDataNascimento() {
-		return dataNascimento;
-	}
-
-
-	public void setDataNascimento(LocalDate dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
-
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-
 	private LocalDate dataNascimento;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Perfil> perfis = new ArrayList<>();
 
 	public Usuario() {}
 	
 
 	public Usuario(Long id, @NotNull String email, @NotNull String username, @NotNull String senha,
 			@NotNull String nome, @NotNull String cpf, @NotNull String telefone, @NotNull Endereco endereco,
-			LocalDate dataNascimento) {
-		super();
+			LocalDate dataNascimento, List<Perfil> perfis) {
 		this.id = id;
 		this.email = email;
 		this.username = username;
@@ -97,6 +88,18 @@ public class Usuario implements UserDetails {
 		this.telefone = telefone;
 		this.endereco = endereco;
 		this.dataNascimento = dataNascimento;
+		this.perfis = perfis;
+	}
+
+
+	
+	public List<Perfil> getPerfis() {
+		return perfis;
+	}
+
+
+	public void setPerfis(List<Perfil> perfis) {
+		this.perfis = perfis;
 	}
 
 
@@ -176,12 +179,24 @@ public class Usuario implements UserDetails {
 		this.telefone = telefone;
 	}
 
-	
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
+	}
+
+
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.perfis;
 	}
 
 
@@ -221,5 +236,6 @@ public class Usuario implements UserDetails {
 	}
 
 
+	
 	
 }

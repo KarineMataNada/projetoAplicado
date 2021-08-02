@@ -99,6 +99,11 @@ public class UsuarioService {
 			if(usuarioAtualizado.isEmpty()) {
 				throw new ResourceNotFoundException("Usuario não encontrado por id");
 			}
+			
+			Endereco endereco = serviceCep.obterEnderecoPorCep(usuario.getEndereco().getCep());
+			endereco.setComplemento(usuario.getEndereco().getComplemento());
+			endereco.setNumero(usuario.getEndereco().getNumero());
+			usuario.setEndereco(endereco);
 
 			usuario.setId(id);		
 			return repositorioUsuario.save(usuario);

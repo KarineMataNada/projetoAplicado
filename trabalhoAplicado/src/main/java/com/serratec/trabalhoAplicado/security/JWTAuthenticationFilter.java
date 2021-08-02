@@ -1,7 +1,6 @@
 package com.serratec.trabalhoAplicado.security;
 
 import java.io.IOException;
-import java.util.Collections;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -34,23 +33,17 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
 		
 		String token = pegarToken(request);
 		
-
 		var id = jwtSevice.obterIdDoUsuario(token);
 		
-		
 		if(id.isPresent()) {
-
-			
+	
 			UserDetails usuario = customUserDetailsService.pegarUsuarioPorId(id.get());
 			
-			
 			UsernamePasswordAuthenticationToken autenticacao = 
-					new UsernamePasswordAuthenticationToken(usuario, null, Collections.emptyList());
-			
+					new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
 			
 			autenticacao.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 	
-			
 			SecurityContextHolder.getContext().setAuthentication(autenticacao);
 		}
 		

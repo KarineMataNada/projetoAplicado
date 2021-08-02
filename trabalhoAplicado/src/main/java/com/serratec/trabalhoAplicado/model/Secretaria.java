@@ -1,5 +1,6 @@
 package com.serratec.trabalhoAplicado.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
 
@@ -13,7 +14,11 @@ public class Secretaria extends Usuario{
 	public  Secretaria(Long id, String email, String username, String senha, String nome, String cpf ,String telefone) {
 			super();
 	}
-		
+	
+	
     public Secretaria() {}
+
+    
+    
 }
 

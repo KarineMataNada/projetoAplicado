@@ -54,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.authorizeRequests()
 			
-	
+			.antMatchers(HttpMethod.GET, "/api/medicos").hasRole("MEDICO")
 			
 			.antMatchers("/api/login","/api/swagger-ui.html") 
 			.permitAll() 

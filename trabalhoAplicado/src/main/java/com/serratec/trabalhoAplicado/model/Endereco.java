@@ -41,6 +41,7 @@ public class Endereco {
 
 	private String uf;
 	
+	
 	public Endereco() {}
 	
 	

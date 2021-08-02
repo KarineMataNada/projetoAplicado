@@ -33,6 +33,7 @@ public class JWTService {
 		
 		//Pega o usuario atual da atenticação.
 		Usuario usuario =  (Usuario) authentication.getPrincipal();
+
 		
 		//Aqui ele pega todos os dados e retorna um token bonito JWT.
 		return Jwts.builder()

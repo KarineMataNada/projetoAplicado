@@ -1,7 +1,0 @@
-spring.datasource.url=jdbc:postgresql://localhost:5432/testV14
-spring.datasource.username=postgres
-spring.datasource.password=1914
-spring.datasource.driver-class-name=org.postgresql.Driver
-spring.jpa.hibernate.ddl-auto=update
-
-

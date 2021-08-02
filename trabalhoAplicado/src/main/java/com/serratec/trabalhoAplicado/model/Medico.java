@@ -28,9 +28,9 @@ public class Medico extends Usuario {
 		private String especialidade;
 		
 		
-//		@OneToMany(mappedBy = "medico")
-//		private List<Layout> layout;
-//		
+		@OneToMany(mappedBy = "medico")
+		private List<Recibo> recibo;
+		
 		
 	    public String getEspecialidade() {
 			return especialidade;
@@ -41,6 +41,7 @@ public class Medico extends Usuario {
 		}
 		
 		public Medico() {}
+		
 		public String getCrn() {
 			return crn;
 		}

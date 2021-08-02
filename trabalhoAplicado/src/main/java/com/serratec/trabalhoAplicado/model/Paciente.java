@@ -1,5 +1,7 @@
 package com.serratec.trabalhoAplicado.model;
 
+
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -44,13 +46,13 @@ public class Paciente {
 	private String telefone;
 	
 	@OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name = "endereco_id")
+    @JoinColumn(name = "endereco_paciente_id")
 	private Endereco endereco;
 	
 
-//	@OneToMany(mappedBy = "paciente")
-//	private List<Layout> layout;
-//	
+	@OneToMany(mappedBy = "paciente")
+	private List<Recibo> recibo;
+	
 
 	public Paciente() {}
 	
@@ -67,6 +69,18 @@ public class Paciente {
 		this.endereco = endereco;
 	}
 
+
+
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
 
 
 
