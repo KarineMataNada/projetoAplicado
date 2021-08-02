@@ -103,6 +103,8 @@ public class UsuarioService {
 			Endereco endereco = serviceCep.obterEnderecoPorCep(usuario.getEndereco().getCep());
 			endereco.setComplemento(usuario.getEndereco().getComplemento());
 			endereco.setNumero(usuario.getEndereco().getNumero());
+			endereco.setBairro(usuario.getEndereco().getBairro());
+			endereco.setLogradouro(usuario.getEndereco().getLogradouro());
 			usuario.setEndereco(endereco);
 
 			usuario.setId(id);		

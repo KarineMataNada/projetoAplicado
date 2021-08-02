@@ -45,6 +45,7 @@ public class EmpresaService {
 	
 	public Empresa adicionar(Empresa empresa) {
 		empresa.setId(null);
+		
 
 		Endereco endereco = serviceCep.obterEnderecoPorCep(empresa.getEndereco().getCep());
 		endereco.setComplemento(empresa.getEndereco().getComplemento());

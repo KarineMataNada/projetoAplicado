@@ -39,13 +39,15 @@ public class Empresa {
 	
 	
 	private String logo;
+	
+	private String telefone;
 
 
 	public Empresa() {}
 
 
 	public Empresa(Long id, @NotNull String nomeFantasia, @NotNull String razaoSocial, @NotNull String email,
-			@NotNull String cnpj, @NotNull Endereco endereco, String logo) {
+			@NotNull String cnpj, @NotNull Endereco endereco, String logo, String telefone) {
 		super();
 		this.id = id;
 		this.nomeFantasia = nomeFantasia;
@@ -54,7 +56,9 @@ public class Empresa {
 		this.cnpj = cnpj;
 		this.endereco = endereco;
 		this.logo = logo;
+		this.telefone = telefone;
 	}
+
 
 
 	public Long getId() {
@@ -124,6 +128,16 @@ public class Empresa {
 
 	public void setLogo(String logo) {
 		this.logo = logo;
+	}
+
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
 	
