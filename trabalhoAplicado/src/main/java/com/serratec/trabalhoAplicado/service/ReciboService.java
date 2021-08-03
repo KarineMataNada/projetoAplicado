@@ -12,11 +12,9 @@ import com.serratec.trabalhoAplicado.dto.ReciboDto;
 import com.serratec.trabalhoAplicado.exception.ResourceBadRequestException;
 import com.serratec.trabalhoAplicado.exception.ResourceNotFoundException;
 import com.serratec.trabalhoAplicado.model.HistoricoRecibo;
-import com.serratec.trabalhoAplicado.model.Layout;
 import com.serratec.trabalhoAplicado.model.Recibo;
-import com.serratec.trabalhoAplicado.model.Usuario;
 import com.serratec.trabalhoAplicado.model.enuns.Acoes;
-import com.serratec.trabalhoAplicado.repository.LayoutRepository;
+
 import com.serratec.trabalhoAplicado.repository.ReciboRepository;
 
 
@@ -27,19 +25,15 @@ public class ReciboService {
 	@Autowired
 	private ReciboRepository repositorioRecibo;
 	
-	@Autowired
-	private LayoutRepository repositorioLayout;
-	
-
 
 	public List<ReciboDto> obterTodos() {
         List<Recibo> recibo =    repositorioRecibo.findAll();
-        List<ReciboDto> reviboDto= new ArrayList<ReciboDto>();
+        List<ReciboDto> reciboDto= new ArrayList<ReciboDto>();
 
         for (Recibo recibos : recibo) {
-            reviboDto.add(reciboExibir(recibos));
+            reciboDto.add(reciboExibir(recibos));
         }
-        return reviboDto;
+        return reciboDto;
 }
 	
 	 public List<ReciboDto> obterTodosFinalizados(Recibo historicoRecibo){
@@ -78,62 +72,66 @@ public class ReciboService {
 
 	public Recibo adicionar(Recibo recibo) {
 		
-		Layout layout = repositorioLayout.findById(recibo.getLayout().getId()).get();
-
-	     if(layout.getData() == true) {
+//		Layout layout = repositorioLayout.findById(recibo.getLayout().getId()).get();
+//
+//	     if(layout.getData() == true) {
 	        recibo.setData(LocalDate.now());
-
-	    } if(layout.getFormaPagamento() == true) {
-	        recibo.getFormaPagamento();
-
-	    } if(layout.getSecretaria() == true) {
-	        recibo.getSecretaria().getNome();
-
-	    } if (layout.getValor() == true) {
-	        recibo.getProcedimento().forEach(p -> p.getValor());
-	    }
+//
+//	    } if(layout.getFormaPagamento() == true) {
+//	        recibo.getFormaPagamento();
+//
+//	    } if(layout.getSecretaria() == true) {
+//	        recibo.getSecretaria().getNome();
+//
+//	    } if (layout.getValor() == true) {
+//	        recibo.getProcedimento().forEach(p -> p.getValor());
+//	    }
 	  
 		return repositorioRecibo.save(recibo);
 		
 }
 	
 	
-	 public Recibo atualizar(Recibo recibo, Long id) {
-		 Optional<Recibo> reciboAtualizado = repositorioRecibo.findById(id);
+	 public Recibo atualizar(Recibo reciboAtualizado, Long id) {
+		 Optional<Recibo> recibo = repositorioRecibo.findById(id);
 		   				 
-			if(reciboAtualizado.isEmpty()) {
+			if(recibo.isEmpty()) {
 				throw new ResourceNotFoundException("Recibo não encontrado por id");
-			} if (reciboAtualizado.get().isStatusFinalizado() == true) {
+			} if (recibo.get().isStatusFinalizado() == true) {
 				throw new ResourceBadRequestException("Recibo ja esta finalizado");
 			}
 			
-			HistoricoRecibo historicoRecibo = new HistoricoRecibo(Acoes.EDITADO, LocalDate.now());
-		    recibo.setHistoricoRecibo(adicionarHistorico(historicoRecibo, recibo));	 
+			HistoricoRecibo historicoRecibo = new HistoricoRecibo(Acoes.EDITADO, LocalDate.now(), reciboAtualizado);
+		    reciboAtualizado.setHistoricoRecibo(adicionarHistorico(historicoRecibo, recibo.get()));	 
 			
-			recibo.setId(id);		
-			return repositorioRecibo.save(recibo);
+		    reciboAtualizado.setId(id);		
+			
+			return repositorioRecibo.save(reciboAtualizado);
 			
 }
 	
 	
-	public void deletar(Recibo recibo, Long id) {
-	    Optional<Recibo> deletarRecibo = repositorioRecibo.findById(id);
+	public void deletar(Long id) {
+	    Optional<Recibo> recibo = repositorioRecibo.findById(id);
 	    
 	   
-	    if(deletarRecibo.isEmpty()) {
+	    if(recibo.isEmpty()) {
 			throw new ResourceNotFoundException("Recibo não encontrado!");
 		}
 	  
-	    HistoricoRecibo historicoRecibo = new HistoricoRecibo(Acoes.EXCLUIDO, LocalDate.now());
-	    recibo.setHistoricoRecibo(adicionarHistorico(historicoRecibo, recibo));	 
-	    recibo.setStatusFinalizado(true);
+	    HistoricoRecibo historicoRecibo = new HistoricoRecibo(Acoes.EXCLUIDO, LocalDate.now(), recibo.get());
+	    recibo.get().getHistoricoRecibo().add(historicoRecibo); 
+	    recibo.get().setStatusFinalizado(true);
 	    
-	    repositorioRecibo.save(recibo);
+	    repositorioRecibo.save(recibo.get());
 }
 	
 	public List<HistoricoRecibo> adicionarHistorico(HistoricoRecibo historicoRecibo, Recibo recibo){
 		List<HistoricoRecibo> lista = new ArrayList<>();
-		lista = recibo.getHistoricoRecibo();
+		if(recibo.getHistoricoRecibo() != null) {
+			lista = recibo.getHistoricoRecibo();
+}
+		
 		lista.add(historicoRecibo);
 		return lista;
 }
@@ -150,7 +148,7 @@ public class ReciboService {
         reciboDto.setNomeSecretaria(recibo.getSecretaria().getNome());
         reciboDto.setProcedimento(recibo.getProcedimento());
         reciboDto.setFormaPagamento(recibo.getFormaPagamento());
-        reciboDto.setDate(LocalDate.now());
+        reciboDto.setData(recibo.getData());
         reciboDto.setRodape(recibo.getRodape());
         reciboDto.setStatusFinalizado(recibo.isStatusFinalizado());
         reciboDto.setHistoricoRecibo(recibo.getHistoricoRecibo());

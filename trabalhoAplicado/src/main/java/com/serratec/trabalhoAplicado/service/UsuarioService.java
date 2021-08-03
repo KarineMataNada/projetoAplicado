@@ -76,10 +76,18 @@ public class UsuarioService {
 		
 		if(repositorioUsuario.findByUsername(usuario.getUsername()).isPresent()) {
 			
-	}
+	    }
 		Endereco endereco = serviceCep.obterEnderecoPorCep(usuario.getEndereco().getCep());
 		endereco.setComplemento(usuario.getEndereco().getComplemento());
 		endereco.setNumero(usuario.getEndereco().getNumero());
+		
+		if(endereco.getBairro() == "") {
+			endereco.setBairro(usuario.getEndereco().getBairro());
+        }
+		
+		if(endereco.getLogradouro() == "") {
+			endereco.setLogradouro(usuario.getEndereco().getLogradouro());
+		}
 		usuario.setEndereco(endereco);
 		
 		
@@ -103,8 +111,14 @@ public class UsuarioService {
 			Endereco endereco = serviceCep.obterEnderecoPorCep(usuario.getEndereco().getCep());
 			endereco.setComplemento(usuario.getEndereco().getComplemento());
 			endereco.setNumero(usuario.getEndereco().getNumero());
-			endereco.setBairro(usuario.getEndereco().getBairro());
-			endereco.setLogradouro(usuario.getEndereco().getLogradouro());
+			
+			if(endereco.getBairro() == "") {
+				endereco.setBairro(usuario.getEndereco().getBairro());
+	        }
+			
+			if(endereco.getLogradouro() == "") {
+				endereco.setLogradouro(usuario.getEndereco().getLogradouro());
+			}
 			usuario.setEndereco(endereco);
 
 			usuario.setId(id);		

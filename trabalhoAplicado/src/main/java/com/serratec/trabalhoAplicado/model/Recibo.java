@@ -4,6 +4,7 @@ package com.serratec.trabalhoAplicado.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,10 +22,13 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.serratec.trabalhoAplicado.model.enuns.FormaPagamento;
 
 @Entity
 @Table(name = "recibo")
+@JsonInclude(Include.NON_NULL)
 @SequenceGenerator(name = "generator_recibo", sequenceName = "sequence_recibo", initialValue = 1, allocationSize = 1)
 public class Recibo {
 
@@ -73,7 +77,8 @@ public class Recibo {
 	@JoinColumn(name = "secretaria_id")
 	private Secretaria secretaria;
 	
-	@OneToMany(mappedBy= "recibo")
+	
+	@OneToMany(mappedBy= "recibo", cascade=CascadeType.ALL)
 	private List<HistoricoRecibo> historicoRecibo;
 
 	
@@ -206,6 +211,14 @@ public class Recibo {
 		this.data = data;
 	}
 
+	public Boolean getStatusFinalizado() {
+		return statusFinalizado;
+	}
+
+	public void setStatusFinalizado(Boolean statusFinalizado) {
+		this.statusFinalizado = statusFinalizado;
+	}
+
 	public List<HistoricoRecibo> getHistoricoRecibo() {
 		return historicoRecibo;
 	}
@@ -213,6 +226,7 @@ public class Recibo {
 	public void setHistoricoRecibo(List<HistoricoRecibo> historicoRecibo) {
 		this.historicoRecibo = historicoRecibo;
 	}
+
 
 
 

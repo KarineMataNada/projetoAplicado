@@ -9,8 +9,12 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 @Entity
 @Table(name = "procedimento")
+@JsonInclude(Include.NON_NULL)
 @SequenceGenerator(name = "generator_procedimento", sequenceName = "sequence_procedimento", initialValue = 1, allocationSize = 1)
 public class Procedimentos {
 

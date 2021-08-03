@@ -62,8 +62,8 @@ public class ReciboController {
 	}
 	
 	@DeleteMapping("info/{id}")
-	public void deletar(@PathVariable(value = "id")Recibo recibo, Long id) {
-		servicoRecibo.deletar(recibo, id);
+	public void deletar(@PathVariable(value = "id")Long id) {
+		servicoRecibo.deletar(id);
 	}
 		
 }

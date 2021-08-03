@@ -9,7 +9,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 @Entity
+@JsonInclude(Include.NON_NULL)
 @SequenceGenerator(name = "generator_medico", sequenceName = "sequence_medico", initialValue = 1, allocationSize = 1)
 public class Medico extends Usuario {
 	

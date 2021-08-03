@@ -66,6 +66,14 @@ public class MedicoService {
 		Endereco endereco = serviceCep.obterEnderecoPorCep(medico.getEndereco().getCep());
 		endereco.setComplemento(medico.getEndereco().getComplemento());
 		endereco.setNumero(medico.getEndereco().getNumero());
+		
+		if(endereco.getBairro() == "") {
+			endereco.setBairro(medico.getEndereco().getBairro());
+        }
+		
+		if(endereco.getLogradouro() == "") {
+			endereco.setLogradouro(medico.getEndereco().getLogradouro());
+		}
 		medico.setEndereco(endereco);
 		
 		
@@ -90,6 +98,14 @@ public class MedicoService {
 			Endereco endereco = serviceCep.obterEnderecoPorCep(medico.getEndereco().getCep());
 			endereco.setComplemento(medico.getEndereco().getComplemento());
 			endereco.setNumero(medico.getEndereco().getNumero());
+			
+			if(endereco.getBairro() == "") {
+				endereco.setBairro(medico.getEndereco().getBairro());
+	        }
+			
+			if(endereco.getLogradouro() == "") {
+				endereco.setLogradouro(medico.getEndereco().getLogradouro());
+			}
 			medico.setEndereco(endereco);
 
 			

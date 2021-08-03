@@ -8,9 +8,13 @@ import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 
 @Entity
 @Table(name = "perfil")
+@JsonInclude(Include.NON_NULL)
 public class Perfil implements GrantedAuthority{
 
 	

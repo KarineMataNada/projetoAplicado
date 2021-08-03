@@ -29,7 +29,7 @@ public class ReciboDto {
 	
 	private FormaPagamento formaPagamento;
 	
-	private LocalDate date;
+	private LocalDate data;
 	
 	private String rodape;
 	
@@ -87,14 +87,6 @@ public class ReciboDto {
 	}
 
 
-	public LocalDate getDate() {
-		return date;
-	}
-
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
-
 	public String getRodape() {
 		return rodape;
 	}
@@ -141,6 +133,14 @@ public class ReciboDto {
 
 	public void setStatusFinalizado(Boolean statusFinalizado) {
 		this.statusFinalizado = statusFinalizado;
+	}
+
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
 	
 }

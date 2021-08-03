@@ -63,6 +63,14 @@ public class SecretariaService {
 		Endereco endereco = serviceCep.obterEnderecoPorCep(secretaria.getEndereco().getCep());
 		endereco.setComplemento(secretaria.getEndereco().getComplemento());
 		endereco.setNumero(secretaria.getEndereco().getNumero());
+		
+		if(endereco.getBairro() == "") {
+			endereco.setBairro(secretaria.getEndereco().getBairro());
+        }
+		
+		if(endereco.getLogradouro() == "") {
+			endereco.setLogradouro(secretaria.getEndereco().getLogradouro());
+		}
 		secretaria.setEndereco(endereco);
 		
 		
@@ -86,6 +94,14 @@ public class SecretariaService {
 			Endereco endereco = serviceCep.obterEnderecoPorCep(secretaria.getEndereco().getCep());
 			endereco.setComplemento(secretaria.getEndereco().getComplemento());
 			endereco.setNumero(secretaria.getEndereco().getNumero());
+			
+			if(endereco.getBairro() == "") {
+				endereco.setBairro(secretaria.getEndereco().getBairro());
+	        }
+			
+			if(endereco.getLogradouro() == "") {
+				endereco.setLogradouro(secretaria.getEndereco().getLogradouro());
+			}
 			secretaria.setEndereco(endereco);
 			
 		 secretaria.setId(id);		
