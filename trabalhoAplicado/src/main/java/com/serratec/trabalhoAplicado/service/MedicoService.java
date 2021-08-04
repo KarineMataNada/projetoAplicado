@@ -43,7 +43,7 @@ public class MedicoService {
 		 Optional<Medico> medico = repositorioMedico.findById(id);	 
 		
 		 if(medico.isEmpty()) {
-			throw new ResourceNotFoundException("Paciente não encontrado por id!");
+			throw new ResourceNotFoundException("Medico não encontrado por id!");
 		}
 		 return medico;
 	}
@@ -54,7 +54,7 @@ public class MedicoService {
 		List<Medico> medico = repositorioMedico.findAllByNomeContainingIgnoreCase(nome);	
 		
 		if(medico.isEmpty()) {
-			throw new ResourceNotFoundException("Paciente não encontrado!");
+			throw new ResourceNotFoundException("Medico não encontrado!");
 		}  
 		
 		return medico;
@@ -92,7 +92,7 @@ public class MedicoService {
 		 Optional<Medico> medicoAtualizado = repositorioMedico.findById(id);
 		 
 			if(medicoAtualizado.isEmpty()) {
-				throw new ResourceNotFoundException("Paciente não encontrado por id");
+				throw new ResourceNotFoundException("Medico não encontrado por id");
 			}
 			
 			Endereco endereco = serviceCep.obterEnderecoPorCep(medico.getEndereco().getCep());
@@ -107,7 +107,9 @@ public class MedicoService {
 				endereco.setLogradouro(medico.getEndereco().getLogradouro());
 			}
 			medico.setEndereco(endereco);
-
+			
+			String senha = passwordEnconder.encode(medico.getSenha());
+			medico.setSenha(senha);
 			
 		 medico.setId(id);		
 		return repositorioMedico.save(medico);
@@ -119,7 +121,7 @@ public class MedicoService {
 	    Optional<Medico> deletarMedico = repositorioMedico.findById(id);
 
 	    if(deletarMedico.isEmpty()) {
-			throw new ResourceNotFoundException("Usuario não encontrado por id");
+			throw new ResourceNotFoundException("Medico não encontrado por id");
 		}
 
 		repositorioMedico.deleteById(id);	 

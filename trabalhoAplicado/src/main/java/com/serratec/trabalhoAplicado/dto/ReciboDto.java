@@ -11,7 +11,7 @@ import com.serratec.trabalhoAplicado.model.enuns.FormaPagamento;
 public class ReciboDto {
 	
 
-	private String cabecario;
+	private String cabecalho;
 	
 	private Long id;
 	
@@ -38,12 +38,14 @@ public class ReciboDto {
 	private Boolean statusFinalizado;
 	
 
-	public String getCabecario() {
-		return cabecario;
+
+
+	public String getCabecalho() {
+		return cabecalho;
 	}
 
-	public void setCabecario(String cabecario) {
-		this.cabecario = cabecario;
+	public void setCabecalho(String cabecalho) {
+		this.cabecalho = cabecalho;
 	}
 
 	public String getNomePaciente() {

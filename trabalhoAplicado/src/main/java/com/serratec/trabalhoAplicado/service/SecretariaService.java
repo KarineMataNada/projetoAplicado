@@ -104,6 +104,9 @@ public class SecretariaService {
 			}
 			secretaria.setEndereco(endereco);
 			
+			String senha = passwordEnconder.encode(secretaria.getSenha());
+			secretaria.setSenha(senha);
+			
 		 secretaria.setId(id);		
 		return repositorioSecretaria.save(secretaria);
 		

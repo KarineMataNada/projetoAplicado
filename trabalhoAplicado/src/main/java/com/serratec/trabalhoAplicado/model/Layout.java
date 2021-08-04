@@ -36,20 +36,24 @@ public class Layout {
 	private Boolean formaPagamento;
 	
 	@NotNull
-	private Boolean valor;
+	private Boolean ativo; 
 	
 	
 	public Layout() {}
 
-	public Layout(Long id, String nome, Boolean secretaria, Boolean data, Boolean formaPagamento, Boolean valor) {
-		
+
+	public Layout(Long id, @NotNull String nome, @NotNull Boolean secretaria, @NotNull Boolean data,
+			@NotNull Boolean formaPagamento, @NotNull Boolean ativo) {
+		super();
 		this.id = id;
 		this.nome = nome;
 		this.secretaria = secretaria;
 		this.data = data;
 		this.formaPagamento = formaPagamento;
-		this.valor = valor;
+		this.ativo = ativo;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -91,12 +95,14 @@ public class Layout {
 		this.formaPagamento = formaPagamento;
 	}
 
-	public Boolean getValor() {
-		return valor;
+
+	public Boolean getAtivo() {
+		return ativo;
 	}
 
-	public void setValor(Boolean valor) {
-		this.valor = valor;
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
 	}
 	
 }

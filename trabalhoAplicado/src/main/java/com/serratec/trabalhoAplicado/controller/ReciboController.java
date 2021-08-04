@@ -52,7 +52,7 @@ public class ReciboController {
 	
 	
 	@PostMapping
-	public Recibo adicionar(@RequestBody @Valid Recibo recibo) {		
+	public Recibo adicionar(@RequestBody @Valid Recibo recibo, Long id) {		
 		return servicoRecibo.adicionar(recibo);
 	}
 	

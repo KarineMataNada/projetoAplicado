@@ -12,10 +12,16 @@ import com.serratec.trabalhoAplicado.dto.ReciboDto;
 import com.serratec.trabalhoAplicado.exception.ResourceBadRequestException;
 import com.serratec.trabalhoAplicado.exception.ResourceNotFoundException;
 import com.serratec.trabalhoAplicado.model.HistoricoRecibo;
+import com.serratec.trabalhoAplicado.model.Layout;
+import com.serratec.trabalhoAplicado.model.Medico;
+import com.serratec.trabalhoAplicado.model.Perfil;
 import com.serratec.trabalhoAplicado.model.Recibo;
 import com.serratec.trabalhoAplicado.model.enuns.Acoes;
-
+import com.serratec.trabalhoAplicado.repository.LayoutRepository;
+import com.serratec.trabalhoAplicado.repository.MedicoRepository;
+import com.serratec.trabalhoAplicado.repository.PerfilRepository;
 import com.serratec.trabalhoAplicado.repository.ReciboRepository;
+import com.serratec.trabalhoAplicado.repository.SecretariaRepository;
 
 
 
@@ -24,6 +30,18 @@ public class ReciboService {
 
 	@Autowired
 	private ReciboRepository repositorioRecibo;
+	
+	@Autowired
+	private LayoutRepository repositorioLayout;
+	
+	@Autowired
+	private MedicoRepository repositorioMedico;
+	
+	@Autowired
+	private SecretariaRepository repositorioSecretaria;
+	
+	@Autowired
+	private PerfilRepository repositorioPerfil;
 	
 
 	public List<ReciboDto> obterTodos() {
@@ -72,22 +90,20 @@ public class ReciboService {
 
 	public Recibo adicionar(Recibo recibo) {
 		
-//		Layout layout = repositorioLayout.findById(recibo.getLayout().getId()).get();
-//
-//	     if(layout.getData() == true) {
-	        recibo.setData(LocalDate.now());
-//
-//	    } if(layout.getFormaPagamento() == true) {
-//	        recibo.getFormaPagamento();
-//
-//	    } if(layout.getSecretaria() == true) {
-//	        recibo.getSecretaria().getNome();
-//
-//	    } if (layout.getValor() == true) {
-//	        recibo.getProcedimento().forEach(p -> p.getValor());
-//	    }
-	  
-		return repositorioRecibo.save(recibo);
+		 Optional<Layout> reciboValidar = repositorioLayout.findById(recibo.getLayout().getId());	 
+//		 Optional<Medico> medicoValidar = repositorioMedico.findById(recibo.getMedico().getId());	
+//		 Optional<Perfil> perfilValidar = repositorioPerfil.findById(perfil.getId());
+//		
+		if(reciboValidar.get().getAtivo() == false) {
+			throw new ResourceNotFoundException("Esse Layout foi excluido! Escolha um que esteja ativo.");
+		}
+//	}	if(medicoValidar.get().getPerfis().forEach(p -> p.getNome()) != ) {
+//			throw new ResourceNotFoundException("Esse id não pertence ao um medico! Tente outro id.");
+//	}
+
+        recibo.setData(LocalDate.now());
+		
+        return repositorioRecibo.save(recibo);
 		
 }
 	
@@ -104,8 +120,9 @@ public class ReciboService {
 			HistoricoRecibo historicoRecibo = new HistoricoRecibo(Acoes.EDITADO, LocalDate.now(), reciboAtualizado);
 		    reciboAtualizado.setHistoricoRecibo(adicionarHistorico(historicoRecibo, recibo.get()));	 
 			
+		    
 		    reciboAtualizado.setId(id);		
-			
+			reciboAtualizado.setData(recibo.get().getData());
 			return repositorioRecibo.save(reciboAtualizado);
 			
 }
@@ -139,16 +156,24 @@ public class ReciboService {
 	private ReciboDto reciboExibir(Recibo recibo) {
         ReciboDto reciboDto =  new ReciboDto();
         
-        reciboDto.setCabecario(recibo.getCabecalho());
+        reciboDto.setCabecalho(recibo.getCabecalho());
         reciboDto.setId(recibo.getId());
         reciboDto.setNomePaciente(recibo.getPaciente().getNome());
         reciboDto.setCpfPaciente(recibo.getPaciente().getCpf());
         reciboDto.setNomeMedico(recibo.getMedico().getNome());
         reciboDto.setCrmMedico(recibo.getMedico().getCrn());
-        reciboDto.setNomeSecretaria(recibo.getSecretaria().getNome());
+        
         reciboDto.setProcedimento(recibo.getProcedimento());
-        reciboDto.setFormaPagamento(recibo.getFormaPagamento());
-        reciboDto.setData(recibo.getData());
+         if(recibo.getLayout().getSecretaria() == true) {
+        	 reciboDto.setNomeSecretaria(recibo.getSecretaria().getNome());
+    }     
+        if(recibo.getLayout().getFormaPagamento()) {
+        	reciboDto.setFormaPagamento(recibo.getFormaPagamento());
+    }
+        if(recibo.getLayout().getData()) {
+        	reciboDto.setData(recibo.getData());
+    }
+        
         reciboDto.setRodape(recibo.getRodape());
         reciboDto.setStatusFinalizado(recibo.isStatusFinalizado());
         reciboDto.setHistoricoRecibo(recibo.getHistoricoRecibo());

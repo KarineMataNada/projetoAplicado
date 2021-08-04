@@ -12,6 +12,7 @@ import com.serratec.trabalhoAplicado.repository.LayoutRepository;
 
 
 
+
 @Service
 public class LayoutService {
 	
@@ -47,19 +48,24 @@ public class LayoutService {
 	
 	public Layout adicionar(Layout layout) {
 		layout.setId(null);
-		
+		layout.setAtivo(true);
+			
 		return repositorioLayout.save(layout);
 		
 	}
 	
-	 public Layout atualizar(Layout layout, Long id) {
-		 Optional<Layout> layoutAtualizado = repositorioLayout.findById(id);
+	 public Layout atualizar(Layout layoutAtualizado, Long id) {
+		 Optional<Layout> layout = repositorioLayout.findById(id);
 		 
-			if(layoutAtualizado.isEmpty()) {
+			if(layout.isEmpty()) {
 				throw new ResourceNotFoundException("Layout não encontrado!");
 			}
-	    layout.setId(id);		
-		return repositorioLayout.save(layout);
+			if(layout.get().getAtivo() == false) {
+				throw new ResourceNotFoundException("Layout foi excluido!"); 
+			}
+		layoutAtualizado.setAtivo(true);	
+	    layoutAtualizado.setId(id);		
+		return repositorioLayout.save(layoutAtualizado);
 		
 	}
 
@@ -70,7 +76,14 @@ public class LayoutService {
 	    if(deletarLayout.isEmpty()) {
 			throw new ResourceNotFoundException("Layout não encontrado!");
 		}
-		repositorioLayout.deleteById(id);	 
+		if(deletarLayout.get().getAtivo() == false) {
+			throw new ResourceNotFoundException("Layout já foi excluido!"); 
+		}
+
+	    deletarLayout.get().setAtivo(false);
+	    
+	    
+	    repositorioLayout.save(deletarLayout.get());	 
 }
 	
 	

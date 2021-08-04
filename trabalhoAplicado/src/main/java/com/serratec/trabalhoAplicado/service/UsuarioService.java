@@ -121,6 +121,9 @@ public class UsuarioService {
 			}
 			usuario.setEndereco(endereco);
 
+			String senha = passwordEnconder.encode(usuario.getSenha());
+			usuario.setSenha(senha);
+			
 			usuario.setId(id);		
 			return repositorioUsuario.save(usuario);
 			
