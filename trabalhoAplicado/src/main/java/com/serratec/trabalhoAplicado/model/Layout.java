@@ -35,7 +35,7 @@ public class Layout {
 	@NotNull
 	private Boolean formaPagamento;
 	
-	@NotNull
+	
 	private Boolean ativo; 
 	
 	
@@ -43,7 +43,7 @@ public class Layout {
 
 
 	public Layout(Long id, @NotNull String nome, @NotNull Boolean secretaria, @NotNull Boolean data,
-			@NotNull Boolean formaPagamento, @NotNull Boolean ativo) {
+			@NotNull Boolean formaPagamento, Boolean ativo) {
 		super();
 		this.id = id;
 		this.nome = nome;

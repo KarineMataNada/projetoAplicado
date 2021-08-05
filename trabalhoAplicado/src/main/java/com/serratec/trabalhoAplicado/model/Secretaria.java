@@ -22,7 +22,7 @@ public class Secretaria extends Usuario{
 	
     public Secretaria() {}
 
-    
+
     
 }
 
