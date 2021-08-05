@@ -14,7 +14,7 @@ public class Mailler {
 	private JavaMailSender javaMailSender;
 	
 
-	public void enviar(MenssagemEmail mensagem) {
+	public void enviar(MensagemEmail mensagem) {
 		try {
 			MimeMessage email = javaMailSender.createMimeMessage();	
 			MimeMessageHelper helper = new MimeMessageHelper(email, true);

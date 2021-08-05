@@ -1,13 +1,22 @@
 package com.serratec.trabalhoAplicado.service;
 
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
+import com.lowagie.text.DocumentException;
+import com.serratec.trabalhoAplicado.config.PDFConfig;
 import com.serratec.trabalhoAplicado.dto.ReciboDto;
 import com.serratec.trabalhoAplicado.exception.ResourceBadRequestException;
 import com.serratec.trabalhoAplicado.exception.ResourceNotFoundException;
@@ -17,11 +26,12 @@ import com.serratec.trabalhoAplicado.model.Medico;
 import com.serratec.trabalhoAplicado.model.Paciente;
 import com.serratec.trabalhoAplicado.model.Recibo;
 import com.serratec.trabalhoAplicado.model.Secretaria;
+import com.serratec.trabalhoAplicado.model.email.Mailler;
+import com.serratec.trabalhoAplicado.model.email.MensagemEmail;
 import com.serratec.trabalhoAplicado.model.enuns.Acoes;
 import com.serratec.trabalhoAplicado.repository.LayoutRepository;
 import com.serratec.trabalhoAplicado.repository.MedicoRepository;
 import com.serratec.trabalhoAplicado.repository.PacienteRepository;
-import com.serratec.trabalhoAplicado.repository.ProcedimentosRepository;
 import com.serratec.trabalhoAplicado.repository.ReciboRepository;
 import com.serratec.trabalhoAplicado.repository.SecretariaRepository;
 
@@ -43,8 +53,8 @@ public class ReciboService {
 	@Autowired
 	private PacienteRepository repositorioPaciente;
 	
-	@Autowired
-	private ProcedimentosRepository repositorioProcedimetos;
+	@Autowired 
+	private Mailler mailler;
 
 	public List<ReciboDto> obterTodos() {
 		List<Recibo> recibo = repositorioRecibo.findAll();
@@ -185,17 +195,29 @@ public class ReciboService {
 
 		return reciboDto;
 	}
-
-//	 public void enviarEmail(){
+//	
+//    public void exportToPDF(HttpServletResponse response,@PathVariable("id") Long id) throws DocumentException, IOException {
+//        response.setContentType("application/pdf");
+//        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+//        String currentDateTime = dateFormatter.format(new Date());
+//         
+//        String headerKey = "Content-Disposition";
+//        String headerValue = "attachment; filename=users_" + currentDateTime + ".pdf";
+//        response.setHeader(headerKey, headerValue);
+//         
+//       Optional<Recibo>  listUsers = repositorioRecibo.findById(id);
+//        
+//        PDFConfig exporter = new PDFConfig(reciboExibir(listUsers.get()));
+//        exporter.export(response);
+//    }
+//
+//	 public void enviarEmail(Recibo recibo){
 //		
-//	    	var mensagem ="<!doctypehtml><html lang=en><meta charset=UTF-8><meta content=\\\"IE"
-//	    				+ "=edge\\\"http-equiv=X-UA-Compatible><meta content=\\\"width=device-width,"
-//	    				+ "initial-scale=1\\\"name=viewport><title>Recibo</title><body style=backgr"
-//	    				+ "ound-color:#8abee6;color:#fff;text-align:center><h2 style=text-align:cente"
-//	    				+ "Segue a baixo seu recibo!</h4>";
+//	    	var mensagem = exportToPDF(recibo, recibo.getId());
 //	    		
 //	    				
-//	    				var email = new MenssagemEmail();
+//	    				var email = new MensagemEmail();
 //	    				mailler.enviar(email);
+//	    			
 //	    	}
 }

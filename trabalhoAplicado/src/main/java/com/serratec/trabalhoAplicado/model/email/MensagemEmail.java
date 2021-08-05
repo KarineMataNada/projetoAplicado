@@ -2,13 +2,15 @@ package com.serratec.trabalhoAplicado.model.email;
 
 import java.util.List;
 
-public class MenssagemEmail {
+public class MensagemEmail {
 	
 	private String assunto;
 	private String corpo;
 	private List<String> destinatarios;
 		
-	public MenssagemEmail(String assunto, String corpo, List<String> destinatarios) {
+	public MensagemEmail() {};
+	
+	public MensagemEmail(String assunto, String corpo, List<String> destinatarios) {
 		this.assunto = assunto;
 		this.corpo = corpo;
 		this.destinatarios = destinatarios;
