@@ -36,31 +36,49 @@ public class PDFConfig {
 		cell.setPhrase(new Phrase("Recibo ID", font));
 		table.addCell(cell);
 
-		cell.setPhrase(new Phrase("NomePaciente", font));
+		cell.setPhrase(new Phrase("Nome Paciente", font));
 		table.addCell(cell);
 
-		cell.setPhrase(new Phrase("CPFPaciente", font));
+		cell.setPhrase(new Phrase("CPF Paciente", font));
 		table.addCell(cell);
 
-		cell.setPhrase(new Phrase("NomeMedico", font));
+		cell.setPhrase(new Phrase("Nome Medico", font));
 		table.addCell(cell);
 
-//	        cell.setPhrase(new Phrase("CRM", font));
-//	        table.addCell(cell);
-//	        
-//	        cell.setPhrase(new Phrase("Secretaria", font));
-//	        table.addCell(cell);
-//	        
-//	        cell.setPhrase(new Phrase("Data", font));
-//	        table.addCell(cell);
-//	        
-//	        cell.setPhrase(new Phrase("FoemaPagamente", font));
-//	        table.addCell(cell);
-//	        
-//	        
-//	        cell.setPhrase(new Phrase("Procedimento", font));
-//	        table.addCell(cell);
-//	        
+	}
+
+	private void writeTableHeader1(PdfPTable tablemedico) {
+		PdfPCell cell = new PdfPCell();
+		cell.setBackgroundColor(Color.BLUE);
+		cell.setPadding(4);
+
+		Font font = FontFactory.getFont(FontFactory.HELVETICA);
+		font.setColor(Color.WHITE);
+
+		cell.setPhrase(new Phrase("CRM", font));
+		tablemedico.addCell(cell);
+
+		cell.setPhrase(new Phrase("Secretaria", font));
+		tablemedico.addCell(cell);
+
+		cell.setPhrase(new Phrase("Data", font));
+		tablemedico.addCell(cell);
+
+		cell.setPhrase(new Phrase("FormaPagamento", font));
+		tablemedico.addCell(cell);
+
+	}
+
+	private void writeTableHeader2(PdfPTable tableProcedimento) {
+		PdfPCell cell = new PdfPCell();
+		cell.setBackgroundColor(Color.BLUE);
+		cell.setPadding(4);
+
+		Font font = FontFactory.getFont(FontFactory.HELVETICA);
+		font.setColor(Color.WHITE);
+
+		cell.setPhrase(new Phrase("Procedimento", font));
+		tableProcedimento.addCell(cell);
 
 	}
 
@@ -70,11 +88,21 @@ public class PDFConfig {
 		table.addCell(recibo.getNomePaciente());
 		table.addCell(recibo.getCpfPaciente());
 		table.addCell(recibo.getNomeMedico());
-		table.addCell(recibo.getCrmMedico());
-		table.addCell(recibo.getNomeSecretaria());
-		table.addCell(String.valueOf(recibo.getData()));
-		table.addCell(String.valueOf(recibo.getFormaPagamento()));
-		table.addCell(String.valueOf(recibo.getProcedimento()));
+	}
+
+	private void writeTableData1(PdfPTable tablemedico) {
+
+		tablemedico.addCell(recibo.getCrmMedico());
+		tablemedico.addCell(recibo.getNomeSecretaria());
+		tablemedico.addCell(String.valueOf(recibo.getData()));
+		tablemedico.addCell(String.valueOf(recibo.getFormaPagamento()));
+		
+	}
+	
+	private void writeTableData2(PdfPTable tableProcedimento) {
+	
+
+		tableProcedimento.addCell(String.valueOf(recibo.getProcedimento().stream().map(p -> p.getClass())));
 
 	}
 
@@ -102,6 +130,26 @@ public class PDFConfig {
 
 		document.add(table);
 
+		PdfPTable tablemedico = new PdfPTable(4);
+		tablemedico.setWidthPercentage(100f);
+		tablemedico.setWidths(new float[] { 1.5f, 3.5f, 3.0f, 3.0f });
+		tablemedico.setSpacingBefore(10);
+
+		writeTableHeader1(tablemedico);
+		writeTableData1(tablemedico);
+
+		document.add(tablemedico);
+		
+		PdfPTable tableProcedimento = new PdfPTable(4);
+		tableProcedimento.setWidthPercentage(100f);
+		tableProcedimento.setWidths(new float[] { 1.5f, 3.5f, 3.0f, 3.0f });
+		tableProcedimento.setSpacingBefore(10);
+
+		writeTableHeader2(tableProcedimento);
+		writeTableData2(tableProcedimento);
+
+		document.add(tableProcedimento);
+		
 		document.close();
 
 	}
