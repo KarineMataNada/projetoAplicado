@@ -1,38 +1,52 @@
 package com.serratec.trabalhoAplicado.model.email;
 
+import java.util.Properties;
 import javax.mail.internet.MimeMessage;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
+
+import com.serratec.trabalhoAplicado.config.PDFConfig;
+import com.serratec.trabalhoAplicado.exception.ResourceBadRequestException;
+import com.serratec.trabalhoAplicado.model.Recibo;
 
 @Component
 public class Mailler {
 
-	@Autowired
-	private JavaMailSender javaMailSender;
-	
+	private static final String emailSucesso = "Email enviado com sucesso!";
 
-	public void enviar(MensagemEmail mensagem) {
+	public String enviar(Recibo recibo, PDFConfig pdf) {
+
 		try {
-			MimeMessage email = javaMailSender.createMimeMessage();	
-			MimeMessageHelper helper = new MimeMessageHelper(email, true);
-			    
-			helper.setSubject(mensagem.getAssunto());
-		    
-		    helper.setText(mensagem.getCorpo(), true);
-		         		
-		    helper.setTo(mensagem.getDestinatarios()
-						.toArray(new String[mensagem.getDestinatarios().size()]));
-				
-			javaMailSender.send(email);
-				
+
+			JavaMailSenderImpl sender = new JavaMailSenderImpl();
+			sender.setHost("smtp.gmail.com");
+			sender.setPort(587);
+
+			sender.setUsername("serratecgrupo@gmail.com");
+			sender.setPassword("serratec123");
+
+			Properties props = sender.getJavaMailProperties();
+			props.put("mail.transport.protocol", "smtp");
+			props.put("mail.smtp.auth", "true");
+			props.put("mail.smtp.starttls.enable", "true");
+			props.put("mail.debug", "true");
+
+			MimeMessage mensagem = sender.createMimeMessage();
+			MimeMessageHelper helper = new MimeMessageHelper(mensagem);
+			helper.setTo(recibo.getPaciente().getEmail());
+			helper.setSubject("Recibo");
+			helper.setText("Obrigado por solicitar!");
+
+			sender.send(mensagem);
+
+			return emailSucesso;
+
 		} catch (Exception e) {
-			
+			throw new ResourceBadRequestException("Erro ao enviar email!");
 		}
-   
+
 	}
-	
-	
+
 }

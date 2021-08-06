@@ -65,5 +65,14 @@ public class ReciboController {
 	public void deletar(@PathVariable(value = "id")Long id) {
 		servicoRecibo.deletar(id);
 	}
+	
+	@PostMapping("email/{id}")
+	public String email(@PathVariable(value = "id")Long id) {
+		return servicoRecibo.enviarEmail(id);
 		
+	}
+	
+	
+	
 }
+

@@ -70,6 +70,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 			.antMatchers(HttpMethod.POST, "/api/usuarios")
 			.permitAll()
+			
+			.antMatchers(HttpMethod.GET, "/{id}/users/export/pdf")
+			.permitAll()
 
 			.anyRequest().authenticated(); 
 			

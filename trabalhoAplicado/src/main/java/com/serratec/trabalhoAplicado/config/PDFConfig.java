@@ -18,33 +18,33 @@ import com.lowagie.text.pdf.PdfWriter;
 import com.serratec.trabalhoAplicado.dto.ReciboDto;
 
 public class PDFConfig {
-	
-	  private ReciboDto recibo;
-	     
-	    public PDFConfig(ReciboDto recibo) {
-	        this.recibo = recibo;
-	    }
-	 
-	    private void writeTableHeader(PdfPTable table) {
-	        PdfPCell cell = new PdfPCell();
-	        cell.setBackgroundColor(Color.BLUE);
-	        cell.setPadding(4);
-	         
-	        Font font = FontFactory.getFont(FontFactory.HELVETICA);
-	        font.setColor(Color.WHITE);
-	         
-	        cell.setPhrase(new Phrase("Recibo ID", font));
-	        table.addCell(cell);
-	        
-	        cell.setPhrase(new Phrase("NomePaciente", font));
-	        table.addCell(cell);
-	         
-	        cell.setPhrase(new Phrase("CPFPaciente", font));
-	        table.addCell(cell);
-	         
-	        cell.setPhrase(new Phrase("NomeMedico", font));
-	        table.addCell(cell);
-	         
+
+	private ReciboDto recibo;
+
+	public PDFConfig(ReciboDto recibo) {
+		this.recibo = recibo;
+	}
+
+	private void writeTableHeader(PdfPTable table) {
+		PdfPCell cell = new PdfPCell();
+		cell.setBackgroundColor(Color.BLUE);
+		cell.setPadding(4);
+
+		Font font = FontFactory.getFont(FontFactory.HELVETICA);
+		font.setColor(Color.WHITE);
+
+		cell.setPhrase(new Phrase("Recibo ID", font));
+		table.addCell(cell);
+
+		cell.setPhrase(new Phrase("NomePaciente", font));
+		table.addCell(cell);
+
+		cell.setPhrase(new Phrase("CPFPaciente", font));
+		table.addCell(cell);
+
+		cell.setPhrase(new Phrase("NomeMedico", font));
+		table.addCell(cell);
+
 //	        cell.setPhrase(new Phrase("CRM", font));
 //	        table.addCell(cell);
 //	        
@@ -61,53 +61,48 @@ public class PDFConfig {
 //	        cell.setPhrase(new Phrase("Procedimento", font));
 //	        table.addCell(cell);
 //	        
-	        
-	        
-	        
-	         
-	         
-	    }
-	     
-	    private void writeTableData(PdfPTable table) {
-	      
-	            table.addCell(String.valueOf(recibo.getId()));
-	            table.addCell(recibo.getNomePaciente());
-	            table.addCell(recibo.getCpfPaciente());
-	            table.addCell(recibo.getNomeMedico());
-	            table.addCell(recibo.getCrmMedico());
-	            table.addCell(recibo.getNomeSecretaria());
-	            table.addCell(String.valueOf(recibo.getData()));
-	            table.addCell(String.valueOf(recibo.getFormaPagamento()));
-	            table.addCell(String.valueOf(recibo.getProcedimento()));
-	            
-	                 
-	    }
-	     
-	    public void export(HttpServletResponse response) throws DocumentException, IOException {
-	        Document document = new Document(PageSize.A4);
-	        PdfWriter.getInstance(document, response.getOutputStream());
-	         
-	        document.open();
-	        Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
-	        font.setSize(18);
-	        font.setColor(Color.BLACK);
-	         
-	        Paragraph p = new Paragraph(recibo.getCabecalho(), font);
-	        p.setAlignment(Paragraph.ALIGN_CENTER);
-	         
-	        document.add(p);
-	         
-	        PdfPTable table = new PdfPTable(4);
-	        table.setWidthPercentage(100f);
-	        table.setWidths(new float[] {1.5f, 3.5f, 3.0f, 3.0f});
-	        table.setSpacingBefore(10);
-	         
-	        writeTableHeader(table);
-	        writeTableData(table);
-	         
-	        document.add(table);
-	         
-	        document.close();
-	         
-	    }
+
+	}
+
+	private void writeTableData(PdfPTable table) {
+
+		table.addCell(String.valueOf(recibo.getId()));
+		table.addCell(recibo.getNomePaciente());
+		table.addCell(recibo.getCpfPaciente());
+		table.addCell(recibo.getNomeMedico());
+		table.addCell(recibo.getCrmMedico());
+		table.addCell(recibo.getNomeSecretaria());
+		table.addCell(String.valueOf(recibo.getData()));
+		table.addCell(String.valueOf(recibo.getFormaPagamento()));
+		table.addCell(String.valueOf(recibo.getProcedimento()));
+
+	}
+
+	public void export(HttpServletResponse response) throws DocumentException, IOException {
+		Document document = new Document(PageSize.A4);
+		PdfWriter.getInstance(document, response.getOutputStream());
+
+		document.open();
+		Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
+		font.setSize(18);
+		font.setColor(Color.BLACK);
+
+		Paragraph p = new Paragraph(recibo.getCabecalho(), font);
+		p.setAlignment(Paragraph.ALIGN_CENTER);
+
+		document.add(p);
+
+		PdfPTable table = new PdfPTable(4);
+		table.setWidthPercentage(100f);
+		table.setWidths(new float[] { 1.5f, 3.5f, 3.0f, 3.0f });
+		table.setSpacingBefore(10);
+
+		writeTableHeader(table);
+		writeTableData(table);
+
+		document.add(table);
+
+		document.close();
+
+	}
 }

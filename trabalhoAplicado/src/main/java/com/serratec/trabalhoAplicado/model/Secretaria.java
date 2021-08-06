@@ -1,9 +1,13 @@
 package com.serratec.trabalhoAplicado.model;
 
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -19,6 +23,9 @@ public class Secretaria extends Usuario{
 			super();
 	}
 	
+	@JsonIgnore
+	@OneToMany(mappedBy = "secretaria")
+	private List<Recibo> recibo;
 	
     public Secretaria() {}
 

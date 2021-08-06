@@ -9,6 +9,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -31,7 +32,7 @@ public class Medico extends Usuario {
 		@NotNull
 		private String especialidade;
 		
-		
+		@JsonIgnore
 		@OneToMany(mappedBy = "medico")
 		private List<Recibo> recibo;
 		

@@ -17,6 +17,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -54,6 +55,7 @@ public class Paciente {
 	private Endereco endereco;
 	
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "paciente")
 	private List<Recibo> recibo;
 	

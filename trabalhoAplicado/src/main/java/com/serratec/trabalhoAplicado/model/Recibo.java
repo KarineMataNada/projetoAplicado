@@ -46,6 +46,7 @@ public class Recibo {
 	@Column(length = 255)
 	private String rodape;
 	
+	
 	@ManyToOne
 	@JoinColumn(name = "medico_id")
 	@NotNull

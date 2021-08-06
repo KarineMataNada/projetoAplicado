@@ -1,21 +1,13 @@
 package com.serratec.trabalhoAplicado.service;
 
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
-import com.lowagie.text.DocumentException;
 import com.serratec.trabalhoAplicado.config.PDFConfig;
 import com.serratec.trabalhoAplicado.dto.ReciboDto;
 import com.serratec.trabalhoAplicado.exception.ResourceBadRequestException;
@@ -27,7 +19,6 @@ import com.serratec.trabalhoAplicado.model.Paciente;
 import com.serratec.trabalhoAplicado.model.Recibo;
 import com.serratec.trabalhoAplicado.model.Secretaria;
 import com.serratec.trabalhoAplicado.model.email.Mailler;
-import com.serratec.trabalhoAplicado.model.email.MensagemEmail;
 import com.serratec.trabalhoAplicado.model.enuns.Acoes;
 import com.serratec.trabalhoAplicado.repository.LayoutRepository;
 import com.serratec.trabalhoAplicado.repository.MedicoRepository;
@@ -99,31 +90,30 @@ public class ReciboService {
 	}
 
 	public Recibo adicionar(Recibo recibo) {
-		
-		 Optional<Layout> reciboValidar = repositorioLayout.findById(recibo.getLayout().getId());	 
-		 Optional<Medico> medicoValidar = repositorioMedico.findById(recibo.getMedico().getId());	
-         Optional<Secretaria> secretariaValidar = repositorioSecretaria.findById(recibo.getSecretaria().getId());
-         Optional<Paciente> pacienteValidar = repositorioPaciente.findById(recibo.getPaciente().getId());
-         
-		if(reciboValidar.get().getAtivo() == false) {
+
+		Optional<Layout> reciboValidar = repositorioLayout.findById(recibo.getLayout().getId());
+		Optional<Medico> medicoValidar = repositorioMedico.findById(recibo.getMedico().getId());
+		Optional<Secretaria> secretariaValidar = repositorioSecretaria.findById(recibo.getSecretaria().getId());
+		Optional<Paciente> pacienteValidar = repositorioPaciente.findById(recibo.getPaciente().getId());
+
+		if (reciboValidar.get().getAtivo() == false) {
 			throw new ResourceNotFoundException("Esse Layout foi excluido! Escolha um que esteja ativo.");
-}
-		if(medicoValidar.isEmpty()) {
+		}
+		if (medicoValidar.isEmpty()) {
 			throw new ResourceNotFoundException("Esse id não pertence ao um medico! Tente outro id.");
-}
-		if(secretariaValidar.isEmpty()) {
+		}
+		if (secretariaValidar.isEmpty()) {
 			throw new ResourceNotFoundException("Esse id não pertence ao um(a) srecretario(a)! Tente outro id.");
-}
-		if(pacienteValidar.isEmpty()) {
+		}
+		if (pacienteValidar.isEmpty()) {
 			throw new ResourceNotFoundException("Esse id não pertence ao um(a) Paciente! Tente outro id.");
-}
-		
-		
-        recibo.setData(LocalDate.now());
-		
-        return repositorioRecibo.save(recibo);
-		
-}
+		}
+
+		recibo.setData(LocalDate.now());
+
+		return repositorioRecibo.save(recibo);
+
+	}
 
 	public Recibo atualizar(Recibo reciboAtualizado, Long id) {
 		Optional<Recibo> recibo = repositorioRecibo.findById(id);
@@ -155,7 +145,7 @@ public class ReciboService {
 		recibo.get().getHistoricoRecibo().add(historicoRecibo);
 		recibo.get().setStatusFinalizado(true);
 
-		repositorioRecibo.delete(recibo.get());
+		repositorioRecibo.save(recibo.get());
 	}
 
 	public List<HistoricoRecibo> adicionarHistorico(HistoricoRecibo historicoRecibo, Recibo recibo) {
@@ -195,29 +185,17 @@ public class ReciboService {
 
 		return reciboDto;
 	}
-//	
-//    public void exportToPDF(HttpServletResponse response,@PathVariable("id") Long id) throws DocumentException, IOException {
-//        response.setContentType("application/pdf");
-//        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-//        String currentDateTime = dateFormatter.format(new Date());
-//         
-//        String headerKey = "Content-Disposition";
-//        String headerValue = "attachment; filename=users_" + currentDateTime + ".pdf";
-//        response.setHeader(headerKey, headerValue);
-//         
-//       Optional<Recibo>  listUsers = repositorioRecibo.findById(id);
-//        
-//        PDFConfig exporter = new PDFConfig(reciboExibir(listUsers.get()));
-//        exporter.export(response);
-//    }
-//
-//	 public void enviarEmail(Recibo recibo){
-//		
-//	    	var mensagem = exportToPDF(recibo, recibo.getId());
-//	    		
-//	    				
-//	    				var email = new MensagemEmail();
-//	    				mailler.enviar(email);
-//	    			
-//	    	}
+
+	public String enviarEmail(Long id) {
+		Optional<Recibo> reciboPDF = repositorioRecibo.findById(id);
+
+		if (reciboPDF.isEmpty()) {
+			throw new ResourceNotFoundException("Recibo não encontrado!");
+		}
+
+		PDFConfig pdf = new PDFConfig(reciboExibir(reciboPDF.get()));
+
+		return mailler.enviar(reciboPDF.get(), pdf);
+
+	}
 }

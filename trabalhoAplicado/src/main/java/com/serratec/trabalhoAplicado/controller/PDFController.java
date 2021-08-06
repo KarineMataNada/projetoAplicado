@@ -20,24 +20,24 @@ import com.serratec.trabalhoAplicado.service.ReciboService;
 @Controller
 public class PDFController {
 
-       @Autowired
-        private ReciboService reciboService;
-             
-        @GetMapping("/{id}/users/export/pdf")
-        public void exportToPDF(HttpServletResponse response,@PathVariable("id") Long id) throws DocumentException, IOException {
-            response.setContentType("application/pdf");
-            DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-            String currentDateTime = dateFormatter.format(new Date());
-             
-            String headerKey = "Content-Disposition";
-            String headerValue = "attachment; filename=users_" + currentDateTime + ".pdf";
-            response.setHeader(headerKey, headerValue);
-             
-            System.out.println(response);
-            ReciboDto listUsers = reciboService.obterPorId(id);
-             
-            PDFConfig exporter = new PDFConfig(listUsers);
-            exporter.export(response);
-             
-        }
+	@Autowired
+	private ReciboService reciboService;
+
+	@GetMapping("/{id}/users/export/pdf")
+	public void exportToPDF(HttpServletResponse response, @PathVariable("id") Long id)
+			throws DocumentException, IOException {
+		response.setContentType("application/pdf");
+		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+		String currentDateTime = dateFormatter.format(new Date());
+
+		String headerKey = "Content-Disposition";
+		String headerValue = "attachment; filename=users_" + currentDateTime + ".pdf";
+		response.setHeader(headerKey, headerValue);
+
+		ReciboDto listUsers = reciboService.obterPorId(id);
+
+		PDFConfig exporter = new PDFConfig(listUsers);
+		exporter.export(response);
+
+	}
 }
