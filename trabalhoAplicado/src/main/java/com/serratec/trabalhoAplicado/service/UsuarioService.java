@@ -13,12 +13,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.serratec.trabalhoAplicado.dto.LoginResponse;
+import com.serratec.trabalhoAplicado.exception.ResourceBadRequestException;
 import com.serratec.trabalhoAplicado.exception.ResourceNotFoundException;
 import com.serratec.trabalhoAplicado.model.Endereco;
 import com.serratec.trabalhoAplicado.model.Usuario;
 import com.serratec.trabalhoAplicado.repository.EnderecoRepository;
 import com.serratec.trabalhoAplicado.repository.UsuarioRepository;
 import com.serratec.trabalhoAplicado.security.JWTService;
+
+import br.com.caelum.stella.validation.CPFValidator;
+import br.com.caelum.stella.validation.InvalidStateException;
 
 @Service
 public class UsuarioService {
@@ -73,6 +77,7 @@ public class UsuarioService {
 	
 	public Usuario adicionar(Usuario usuario) {
 		usuario.setId(null);
+		validarCPF(usuario.getCpf());
 		
 		if(repositorioUsuario.findByUsername(usuario.getUsername()).isPresent()) {
 			
@@ -107,6 +112,7 @@ public class UsuarioService {
 			if(usuarioAtualizado.isEmpty()) {
 				throw new ResourceNotFoundException("Usuario não encontrado por id");
 			}
+			validarCPF(usuario.getCpf());
 			
 			Endereco endereco = serviceCep.obterEnderecoPorCep(usuario.getEndereco().getCep());
 			endereco.setComplemento(usuario.getEndereco().getComplemento());
@@ -140,6 +146,17 @@ public class UsuarioService {
 		repositorioUsuario.deleteById(id);	 
 	}
 	
+	public void validarCPF(String cpf) {
+		try {
+			CPFValidator cpfValidado = new CPFValidator();
+			cpfValidado.assertValid(cpf);
+
+		} catch (InvalidStateException e) {
+
+			throw new ResourceBadRequestException("CPF invalido!");
+
+		}
+	}
 	
 	public LoginResponse logar(String username, String senha) {
 		

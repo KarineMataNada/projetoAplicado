@@ -2,7 +2,6 @@ package com.serratec.trabalhoAplicado.model.email;
 
 import java.util.Properties;
 
-import javax.activation.DataSource;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.mail.javamail.JavaMailSenderImpl;

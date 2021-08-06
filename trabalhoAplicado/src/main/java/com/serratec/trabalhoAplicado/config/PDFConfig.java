@@ -102,7 +102,7 @@ public class PDFConfig {
 	private void writeTableData2(PdfPTable tableProcedimento) {
 	
 
-		tableProcedimento.addCell(String.valueOf(recibo.getProcedimento().stream().map(p -> p.getClass())));
+		tableProcedimento.addCell(String.valueOf(recibo.getProcedimento().stream().map(p -> p.getNomeProcedimento())));
 
 	}
 

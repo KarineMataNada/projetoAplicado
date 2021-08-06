@@ -7,11 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.serratec.trabalhoAplicado.exception.ResourceBadRequestException;
 import com.serratec.trabalhoAplicado.exception.ResourceNotFoundException;
 import com.serratec.trabalhoAplicado.model.Endereco;
 import com.serratec.trabalhoAplicado.model.Secretaria;
 import com.serratec.trabalhoAplicado.repository.EnderecoRepository;
 import com.serratec.trabalhoAplicado.repository.SecretariaRepository;
+
+import br.com.caelum.stella.validation.CPFValidator;
+import br.com.caelum.stella.validation.InvalidStateException;
 
 
 @Service
@@ -59,6 +63,7 @@ public class SecretariaService {
 	
 	public Secretaria adicionar(Secretaria secretaria) {
 		secretaria.setId(null);
+		validarCPF(secretaria.getCpf());
 		
 		Endereco endereco = serviceCep.obterEnderecoPorCep(secretaria.getEndereco().getCep());
 		endereco.setComplemento(secretaria.getEndereco().getComplemento());
@@ -90,6 +95,7 @@ public class SecretariaService {
 			if(secretariaAtualizado.isEmpty()) {
 				throw new ResourceNotFoundException("Secretario(a) não encontrado por id");
 			}
+			validarCPF(secretaria.getCpf());
 			
 			Endereco endereco = serviceCep.obterEnderecoPorCep(secretaria.getEndereco().getCep());
 			endereco.setComplemento(secretaria.getEndereco().getComplemento());
@@ -123,6 +129,17 @@ public class SecretariaService {
 		repositorioSecretaria.deleteById(id);	 
 }
 	
+	public void validarCPF(String cpf) {
+		try {
+			CPFValidator cpfValidado = new CPFValidator();
+			cpfValidado.assertValid(cpf);
+
+		} catch (InvalidStateException e) {
+
+			throw new ResourceBadRequestException("CPF invalido!");
+
+		}
+	}
 
 	
 }

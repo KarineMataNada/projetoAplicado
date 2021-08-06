@@ -6,11 +6,15 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.serratec.trabalhoAplicado.exception.ResourceBadRequestException;
 import com.serratec.trabalhoAplicado.exception.ResourceNotFoundException;
 import com.serratec.trabalhoAplicado.model.Endereco;
 import com.serratec.trabalhoAplicado.model.Paciente;
 import com.serratec.trabalhoAplicado.repository.EnderecoRepository;
 import com.serratec.trabalhoAplicado.repository.PacienteRepository;
+
+import br.com.caelum.stella.validation.CPFValidator;
+import br.com.caelum.stella.validation.InvalidStateException;
 
 
 
@@ -58,7 +62,7 @@ public class PacienteService {
 	
 	public Paciente adicionar(Paciente paciente) {
 		paciente.setId(null);
-		
+		validarCPF(paciente.getCpf());
 		
 		Endereco endereco = serviceCep.obterEnderecoPorCep(paciente.getEndereco().getCep());
 		endereco.setComplemento(paciente.getEndereco().getComplemento());
@@ -87,6 +91,7 @@ public class PacienteService {
 			if(pacienteAtualizado.isEmpty()) {
 				throw new ResourceNotFoundException("Paciente não encontrado!");
 			}
+			validarCPF(paciente.getCpf());
 			
 			Endereco endereco = serviceCep.obterEnderecoPorCep(paciente.getEndereco().getCep());
 			endereco.setComplemento(paciente.getEndereco().getComplemento());
@@ -116,6 +121,17 @@ public class PacienteService {
 		repositorioPaciente.deleteById(id);	 
 }
 	
+	public void validarCPF(String cpf) {
+		try {
+			CPFValidator cpfValidado = new CPFValidator();
+			cpfValidado.assertValid(cpf);
+
+		} catch (InvalidStateException e) {
+
+			throw new ResourceBadRequestException("CPF invalido!");
+
+		}
+	}
 
 	
 }
