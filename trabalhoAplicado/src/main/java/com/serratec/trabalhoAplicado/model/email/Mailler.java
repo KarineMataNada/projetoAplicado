@@ -1,6 +1,8 @@
 package com.serratec.trabalhoAplicado.model.email;
 
 import java.util.Properties;
+
+import javax.activation.DataSource;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.mail.javamail.JavaMailSenderImpl;
@@ -37,7 +39,7 @@ public class Mailler {
 			MimeMessageHelper helper = new MimeMessageHelper(mensagem);
 			helper.setTo(recibo.getPaciente().getEmail());
 			helper.setSubject("Recibo");
-			helper.setText("Obrigado por solicitar!");
+			helper.setText("Obrigado por solicitar! Falta so colocar o pdf aqui dentro.");
 
 			sender.send(mensagem);
 
